@@ -1,0 +1,69 @@
+ls
+node -v
+ls
+clear
+clear
+pianobar
+clear
+exit
+ls
+clear
+ls
+clear
+ls
+python atl-pricing.py 
+clear
+clear
+clear
+ls
+clear
+ls
+clear
+ls
+ls
+clear
+ls
+clear
+ll
+clear
+ll
+clear
+ll
+htop
+clear
+ls
+cd Development/
+ls
+cd python/
+clear
+ls
+python atl-pricing.py 
+clear
+ls
+clear
+ls
+ll
+clear
+clear
+clear
+ls
+clear
+exit
+ls
+git status
+git pull
+ls
+cd ..
+ls
+cd ..
+ls
+cd ..
+ls
+cd ..
+ls
+clear
+exit
+bash
+exit
+bash
+exit

@@ -1,0 +1,33 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode jdee-mode
+      :tags 
+        '( ("com.martian.ava" package nil nil [1 25])
+            ("org.springframework.boot.SpringApplication" include nil nil [27 77])
+            ("org.springframework.boot.autoconfigure.SpringBootApplication" include nil nil [78 146])
+            ("AvaApplication" type
+               (:typemodifiers ("public")
+                :members 
+                  ( ("main" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("args" variable
+                               (:dereference 1
+                                :type "String")
+                                (reparse-symbol formal_parameters) [230 243]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [206 305]))                  
+                :type "class")
+                nil [171 308]))          
+      :file "AvaApplication.java"
+      :pointmax 309
+      :fsize 308
+      :lastmodtime '(24248 4655 663344 996000)
+      :unmatched-syntax nil))
+  :file "!home!michael!Development!IdeaProjects!ava!src!main!java!com!martian!ava!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

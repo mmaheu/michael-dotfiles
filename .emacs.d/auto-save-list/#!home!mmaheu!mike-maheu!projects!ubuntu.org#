@@ -1,0 +1,93 @@
+#+STARTUP: overview
+#+TAGS: COMPUTER(c) HOME(h) PROJECT(p) READING(r) ERRANDS(e) INPROGRESS(i) WAITING(w)
+#+STARTUP: hidestars
+#+TITLE: Ubuntu Configuration
+
+* Ubuntu Configurations
+  These are the standard things I do to a new Ubuntu installation
+
+
+** Basic Things First
+
+*** Update Apt and Install Base Applications
+
+**** Java
+      sudo apt-add-repository ppa:webupd8team/java
+      sudo apt-get update
+      sudo apt-get install oracle-java8-installer
+
+**** Grails
+     curl -s get.gvmtool.net | bash
+     source ~/.gvm/bin/gvm-init.sh
+     gvm install grails
+
+
+**** Node
+      sudo apt-get install build-essential libssl-dev
+      curl https://raw.githubusercontent.com/creationix/nvm/v0.16.1/install.sh | sh
+
+    - source ~/.profile
+    - nvm ls-remote
+
+    - nvm install 0.11.13
+    - nvm use 0.11.13
+    - nvm alias default 0.11.13
+    - nvm use default
+
+**** VIM
+     set tCo=256 in my .vimrc if it is not there. This will allow for Jellybean theme in the terminal
+
+
+*** Directories and Locations
+    These locations include cloud synced files. I use Dropbox, Ownloud, and Google Drive (Docs)
+
+    - Dropbox has all pictures and markdown files in the Notes directory
+    - Owncloud has personall files and documents
+    - Google has google documents and spreadsheets
+    - Github has the mike-maheu repo which has all of my .org
+
+**** Installation of Cloud Storage and Git
+
+
+*** Emacs org-mode / Git / Apache / Auto Sync
+    This is how I setup my org files on git. They get auto synced via git to the Prometheus server
+    From there I have a simlink to the gtd.html which gets exported from Emacs org-mode and then pushed
+    This allows me to work in Emacs, as well as have a webpage for my GTD. This page is protected by Apache
+
+    - Keep all org files on Github in the mike-maheu repo
+    - Clone to the Prometheus server
+    - Apache has a virtual host setup for gtd.michaelmaheu.com
+
+     Apache Config
+     #+BEGIN_SRC
+      <virtualhost *:80>
+       servername gtd.yourserver.com
+       serveradmin admin@yourserver.com
+       documentroot /var/www/gtd
+        <Directory /var/www/gtd>
+         AllowOverride All
+        </Directory>
+      </virtualhost>
+     #+END_SRC
+
+      HTACESS
+      #+BEGIN_SRC
+       AuthUserFile /home/some_user/.safe/.htpasswd
+       AuthName "Authorization Required"
+       AuthType Basic
+       Require valid-user
+      #+END_SRC
+
+      HTPASSWD
+      #+BEGIN_SRC
+       htpasswd -c /home/pwww/.htpasswd user
+       htpasswd /home/pwww/.htpasswd-users user
+      #+END_SRC
+
+    - Finally there is the cron and bash script
+      The bash script just CDs into the mike-maheu directory and executes git command
+      the user must be added to the /etc/group file @ the cron line. If not you will get permission denied
+      when cron tries to run the script
+
+    - Add to personall cron tab with crontab -e (In this case it will run every 15 minutes)
+      */15 * * * * /home/mmaheu/scripts/gtd.sh

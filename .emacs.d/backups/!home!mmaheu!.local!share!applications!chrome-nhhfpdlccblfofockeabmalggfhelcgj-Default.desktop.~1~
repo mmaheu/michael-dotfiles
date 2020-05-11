@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=UberConference
+Exec=/opt/google/chrome/google-chrome %U --profile-directory=Default --app-id=nhhfpdlccblfofockeabmalggfhelcgj
+Icon=chrome-nhhfpdlccblfofockeabmalggfhelcgj-Default
+StartupWMClass=crx_nhhfpdlccblfofockeabmalggfhelcgj

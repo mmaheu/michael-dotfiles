@@ -1,0 +1,148 @@
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Linux Notes</a>
+<ul>
+<li><a href="#sec-1-1">1.1. Adding User and Sudo</a>
+<ul>
+<li><a href="#sec-1-1-1">1.1.1. Install Atom Editor</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2">1.2. PostgreSQL</a>
+<ul>
+<li><a href="#sec-1-2-1">1.2.1. Tunnel Setup For pgadmin for Mac (Linux just works)</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-3">1.3. SSL</a>
+<ul>
+<li><a href="#sec-1-3-1">1.3.1. SSL Self Signed Cert</a></li>
+<li><a href="#sec-1-3-2">1.3.2. ip ro show</a></li>
+<li><a href="#sec-1-3-3">1.3.3. Apache VirtualHost Setup</a></li>
+<li><a href="#sec-1-3-4">1.3.4. Importing cert into keystore</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-4">1.4. Commands for Various Odd Things</a>
+<ul>
+<li><a href="#sec-1-4-1">1.4.1. systemctl start haldaemon.service</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-2">2. Setting up dev environment</a>
+<ul>
+<li><a href="#sec-2-1">2.1. Setup RVM for Ruby version manager</a></li>
+<li><a href="#sec-2-2">2.2. Node.js Setup</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. TMUX</a>
+<ul>
+<li><a href="#sec-3-1">3.1. Basic Commands</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4. SE Linux</a>
+<ul>
+<li><a href="#sec-4-1">4.1. Commands to allow for HTTPD Proxy</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+# Linux Notes<a id="sec-1" name="sec-1"></a>
+
+## Adding User and Sudo<a id="sec-1-1" name="sec-1-1"></a>
+
+sudo useradd -d /home/testuser -m testuser
+sudo passwd testuser
+sudo usermod -a -G sudo <username>
+
+### Install Atom Editor<a id="sec-1-1-1" name="sec-1-1-1"></a>
+
+-   sudo snap install atom &#x2013;classic
+
+## PostgreSQL<a id="sec-1-2" name="sec-1-2"></a>
+
+sudo -u postgres psql
+
+### Tunnel Setup For pgadmin for Mac (Linux just works)<a id="sec-1-2-1" name="sec-1-2-1"></a>
+
+-   ssh -fNg -L 5555:localhost:5432 mmaheu@g2g-dev.cloudapp.net
+-   Open pgadmin3 and connect to localhost on 5555
+-   sudo killall ssh
+
+## SSL<a id="sec-1-3" name="sec-1-3"></a>
+
+-   generate self signed cert (will add url or commands)
+
+### SSL Self Signed Cert<a id="sec-1-3-1" name="sec-1-3-1"></a>
+
+### ip ro show<a id="sec-1-3-2" name="sec-1-3-2"></a>
+
+> This is something that I am quoting
+
+> Everything should be made as simple as possible,
+> but not any simpler &#x2013; Albert Einstein
+
+Source: [michael maheu](http://michaelmaheu.com)
+
+### Apache VirtualHost Setup<a id="sec-1-3-3" name="sec-1-3-3"></a>
+
+-   SELinux on Redhat for the proxy to work you must run this command: selinux: setsebool -P httpd<sub>can</sub><sub>network</sub><sub>connect</sub> true
+
+### Importing cert into keystore<a id="sec-1-3-4" name="sec-1-3-4"></a>
+
+-Download the PKCS#7 version of your certificate to your server
+Use the following command to install the PKCS#7 certificate into your keystore. You MUST use the same keystore used for your private key and CSR.
+
+-keytool -import -trustcacerts -alias tomcat -file your<sub>site</sub><sub>name</sub>.p7b -keystore mykeystore.jks
+
+-You MUST you the same alias used when the keystore was created, in this case the alias used was tomcat
+
+-Enter your keystore password
+You should get the follow response:
+&#x2026; is not trusted. Install reply anyway? [no]:  yes
+
+Enter 'yes' and hit Enter.
+You should get the following response:
+Certificate reply was installed in keystore
+
+## Commands for Various Odd Things<a id="sec-1-4" name="sec-1-4"></a>
+
+### systemctl start haldaemon.service<a id="sec-1-4-1" name="sec-1-4-1"></a>
+
+# Setting up dev environment<a id="sec-2" name="sec-2"></a>
+
+## Setup RVM for Ruby version manager<a id="sec-2-1" name="sec-2-1"></a>
+
+gpg &#x2013;keyserver hkp://keys.gnupg.net &#x2013;recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+\curl -sSL <https://get.rvm.io> | bash -s stable &#x2013;rails
+
+'  nokogiri BULLSHIT -
+   sudo apt-get install libxml2-dev libxslt-dev
+   gem install nokogiri &#x2013; &#x2013;use-system-libraries=true &#x2013;with-xml2-include=/usr/include/libxml2
+
+## Node.js Setup<a id="sec-2-2" name="sec-2-2"></a>
+
+Install NVM
+curl -o- <https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh> | bash
+source ~/.profile
+nvm install 4.4.3 or whatever version you want
+
+# TMUX<a id="sec-3" name="sec-3"></a>
+
+## Basic Commands<a id="sec-3-1" name="sec-3-1"></a>
+
+Ctrl+b " - split pane horizontally.
+Ctrl+b % - split pane vertically.
+Ctrl+b arrow key - switch pane.
+Hold Ctrl+b, don't release it and hold one of the arrow keys - resize pane.
+Ctrl+b c - (c)reate a new window.
+Ctrl+b n - move to the (n)ext window.
+Ctrl+b p - move to the (p)revious window.
+
+# SE Linux<a id="sec-4" name="sec-4"></a>
+
+## Commands to allow for HTTPD Proxy<a id="sec-4-1" name="sec-4-1"></a>
+
+-setsebool -P httpd<sub>can</sub><sub>network</sub><sub>connect</sub> 1

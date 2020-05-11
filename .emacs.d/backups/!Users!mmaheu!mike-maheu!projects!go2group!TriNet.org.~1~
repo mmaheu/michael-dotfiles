@@ -1,0 +1,19 @@
+#+STARTUP: overview
+#+TAGS: COMPUTER(C) HOME(H) PROJECT(P) READING(R) ERRANDS(E) INPROGRESS(I) WAITING(W)
+#+STARTUP: hidestars
+#+OPTIONS: TOC:nil
+#+OPTIONS: AUTHOR:nil DATE:nil
+#+TITLE: TriNet
+
+
+* Scoping for Hosting
+
+  JIRA:
+  BitBucket:
+  Fisheye:
+  Confluence:
+  Bamboo:
+  JIRA:
+  Artifactory:
+
+  Integration with SNOW and JIRA

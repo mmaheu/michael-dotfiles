@@ -1,0 +1,11 @@
+
+c#+STARTUP: overview
+#+TAGS: COMPUTER(c) HOME(h) PROJECT(p) READING(r) ERRANDS(e)
+#+STARTUP: hidestars
+#+TITLE: Code Martians Project Ideas
+
+* Code Martians General
+  These ideas are at a minimum small projects that can be prototyped.
+
+** Application Ideas
+   EAch section here should be an idea for an application. The application could be mobile, web, or both.

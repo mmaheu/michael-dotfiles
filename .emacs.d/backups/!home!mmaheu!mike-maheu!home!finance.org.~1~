@@ -1,0 +1,28 @@
+#+STARTUP: overview
+#+TAGS: COMPUTER(c) HOME(h) FINANCE(f)
+#+STARTUP: hidestars
+#+TITLE: Mikes Finance File
+
+* Account Information
+  List accounts and their information here:
+
+  - ACA
+  Account Number: 33428881001
+  Office ID: 4720011254
+
+
+
+* Financial Information 2016
+
+** Fourth Quarter
+
+| Item   | Amount | Due | Status | Notes |
+|--------+--------+-----+--------+-------|
+| Item 1 |  25.20 |     |        |       |
+| Item 2 |  15.50 |     |        |       |
+| Item 3 |  20.00 |     |        |       |
+| Item 4 |  10.00 |     |        |       |
+|        |        |     |        |       |
+|--------+--------+-----+--------+-------|
+|        |  70.70 |     |        |       |
+#+TBLFM: $2=@2$2+@3$2+@4$2+@5$2+@6$2;%.2f

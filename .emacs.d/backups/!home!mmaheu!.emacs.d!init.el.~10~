@@ -1,0 +1,71 @@
+(setq user-full-name "Mike Maheu"
+      user-mail-address "mike@codemartians.com")
+
+(set-default 'cursor-type  'hbar)
+
+;; Load the rest of the packages
+(package-initialize nil)
+(setq package-enable-at-startup nil)
+(org-babel-load-file "~/.emacs.d/mike.org")
+
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(erc-input-face ((t (:foreground "antique white"))))
+ '(helm-selection ((t (:inherit highlight :background "cyan4" :foreground "black"))))
+ '(org-agenda-clocking ((t (:inherit secondary-selection :foreground "black"))) t)
+ '(org-agenda-done ((t (:foreground "dim gray" :strike-through nil))))
+ '(org-clock-overlay ((t (:background "SkyBlue4" :foreground "black"))))
+ '(org-done ((t (:foreground "PaleGreen" :weight normal :strike-through t))))
+ '(org-headline-done ((((class color) (min-colors 16) (background dark)) (:foreground "LightSalmon" :strike-through t))))
+ '(outline-1 ((t (:inherit font-lock-function-name-face :foreground "cornflower blue"))))
+ '(smerge-refined-added ((t (:inherit smerge-refined-change :background "darkgreen")))))
+(put 'narrow-to-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
+ '(ansi-color-names-vector
+   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+ '(column-number-mode t)
+
+ '(custom-safe-themes
+   (quote
+    ("82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "f3d6a49e3f4491373028eda655231ec371d79d6d2a628f08d5aa38739340540b" "4ce035b661aee2ea47dbb2f368b8e573346054c04d61c45363e4cb12bc2bdffa" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "8abee8a14e028101f90a2d314f1b03bed1cde7fd3f1eb945ada6ffc15b1d7d65" default)))
+ '(display-time-mode t)
+ '(fci-rule-color "#515151")
+ '(org-agenda-files
+   (quote
+    ("~/mike-maheu/gtd/gtd.org" "~/mike-maheu/gtd/agendas.org" "~/mike-maheu/gtd/calendar.org" "~/mike-maheu/gtd/journal.org" "~/mike-maheu/gtd/mike.org" "~/mike-maheu/gtd/notes.org" "~/mike-maheu/gtd/plangtd.org" "~/mike-maheu/gtd/reminders.org" "~/mike-maheu/gtd/shopping.org" "~/mike-maheu/gtd/someday.org")))
+ '(remember-data-file "~/mike-maheu/gtd/reminders.org")
+ '(show-paren-mode t)
+ '(tool-bar-mode nil)
+ '(vc-annotate-background nil)
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#f2777a")
+     (40 . "#f99157")
+     (60 . "#ffcc66")
+     (80 . "#99cc99")
+     (100 . "#66cccc")
+     (120 . "#6699cc")
+     (140 . "#cc99cc")
+     (160 . "#f2777a")
+     (180 . "#f99157")
+     (200 . "#ffcc66")
+     (220 . "#99cc99")
+     (240 . "#66cccc")
+     (260 . "#6699cc")
+     (280 . "#cc99cc")
+     (300 . "#f2777a")
+     (320 . "#f99157")
+     (340 . "#ffcc66")
+     (360 . "#99cc99"))))
+ '(vc-annotate-very-old-color nil))

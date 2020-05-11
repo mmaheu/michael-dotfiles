@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>tasks.html</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+
+</head>
+
+<body>
+
+<h1>MY LIST:</h1>
+
+<ul>
+<li>Printer Code: 20075</li>
+</ul>
+
+<hr />
+
+<h3>INBOX</h3>
+
+<ul>
+<li><p>[ ] Another Markdown Task as I get back into Emacs</p></li>
+<li><p>[ ] Medical Bills</p></li>
+<li><p>[ ] Testing Preview</p></li>
+<li><p>[ ] Clean Truck</p></li>
+<li><p>[ ] Testing another one</p></li>
+<li><p>[ ] Another one for refresh</p></li>
+</ul>
+
+<h3>NEXT ACTIONS</h3>
+
+<ul>
+<li><p>[ ]  Plan next camping/backpacking trip</p></li>
+<li><p>[X]  TODO budget out December</p></li>
+</ul>
+
+<h3>VSCode Plugins and Enhancements</h3>
+
+<ul>
+<li>Snippets</li>
+<li>CTL K Z - Zen Mode</li>
+<li>Spotify plugin for VSCode</li>
+<li>Chrome plugin for Debug</li>
+<li>Git Lens</li>
+<li>VS Live Share</li>
+</ul>
+
+<h3>SOME DAY MAYBE</h3>
+
+<ul>
+<li><p>[ ]  Learn Python</p></li>
+<li><p>[ ]  Rebuild coding and development skills</p></li>
+</ul>
+
+<h3>REVIEW</h3>
+
+<h3>CALLS</h3>
+
+</body>
+</html>

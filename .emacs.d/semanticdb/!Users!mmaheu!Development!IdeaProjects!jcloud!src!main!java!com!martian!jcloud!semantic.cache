@@ -1,0 +1,16 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode jdee-mode
+      :tags nil
+      :file "JcloudApplication.java"
+      :pointmax 323
+      :fsize 322
+      :lastmodtime '(23497 54564 943839 366000)
+      :unmatched-syntax nil))
+  :file "!Users!mmaheu!Development!IdeaProjects!jcloud!src!main!java!com!martian!jcloud!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

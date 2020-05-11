@@ -1,0 +1,12 @@
+Go2Group will provide an individual to:
+·        Harden the current production environments of the Atlassian stack.  The current production bitbucket server seems to have performance issues that need to be addressed in order complete the migration.
+·        Set up continued monitoring of the systems.
+·        Help establish a standard on-boarding process.
+·        Provide on-boarding activities and support for teams adopting the “Phoenix Reference Architecture”.  Each on-boarding efort will go a two week period to work intimately with the adoption team.  The following will be covered:
+						    i.     Set up bitbucket, jira, bamboo and confluence for the team
+						   ii.     Stabilize the team on their use of the system (i.e. work through build issues as they crop up, make tweaks to the jira implementation, etc.)
+						  iii.     Train a team members on certain aspects of their environment so they can either resolve the issue themselves, or create detailed enough issues for the Dev Ops team to resolve.
+
+·        Work towards creating templates for thehe systems and to assist with rolling standards out to the development teams so they can adopt standards to allow Dev Ops to provide better support and services
+·        Train the Dev Ops team on these systems and processes.
+·        Provide Git support and guidance while improving development efficiency and traceability.

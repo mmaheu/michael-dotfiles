@@ -1,0 +1,375 @@
+#+TITLE: Sacha Chua's Emacs configuration
+#+OPTIONS: toc:4 h:4
+
+* Configuration
+** About this file
+   :PROPERTIES:
+   :CUSTOM_ID: babel-init
+   :END:
+<<babel-init>>
+
+*** Add package sources
+
+#+BEGIN_SRC emacs-lisp
+(unless (assoc-default "melpa" package-archives)
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;  (package-refresh-contents)
+)
+#+END_SRC
+
+*** Custom Theme and Powerline
+
+#+BEGIN_SRC emacs-lisp
+
+(use-package color-theme :ensure t)
+(use-package gotham-theme :ensure t)
+
+(powerline-default-theme)
+
+;; colors...
+(setq powerline-color1 "#222")      ;; dark grey;
+(setq powerline-color2 "#444")      ;; slightly lighter grey
+;; shape...
+(setq powerline-arrow-shape 'slant-left)  ;; new, diagonal from left
+#+END_SRC
+
+*** Undo Tree
+
+#+BEGINE_SRC emacs-lisp
+
+(fset 'yes-or-no-p 'y-or-n-p)
+(use-package undo-tree
+  :defer t
+  :ensure t
+  :diminish undo-tree-mode
+  :config
+  (progn
+    (global-undo-tree-mode)
+    (setq undo-tree-visualizer-timestamps t)
+    (setq undo-tree-visualizer-diff t)))
+
+#+END_SRC
+
+*** My custom setup for GTD files
+
+#+BEGIN_SRC emacs-lisp
+(setq todotxt-default-file (expand-file-name "~/Dropbox/todo/todo.txt"))
+(define-key global-map "\C-co" 'todotxt-open-file)
+(define-key global-map "\C-ct" 'todotxt-add-todo)
+
+(setq org-agenda-files '("~/mike-maheu/gtd"))
+(eval-after-load "org"
+  '(require 'ox-md nil t))
+
+(set-default 'cursor-type  'hbar)
+
+(global-set-key (kbd "<f6>") 'lawlist-bookmark)
+
+(defun lawlist-bookmark (choice)
+  "Choices for directories and files."
+  (interactive "c[D]ired | [a]genda.org | [g]td.org | [m]ike.org | [n]otes.org")
+    (cond
+	   ((eq choice ?D)
+	   (dired "~/Development/java"))
+	   ((eq choice ?a)
+	   (find-file "~/mike-maheu/gtd/agenda.org")
+	    (message "Opened:  %s" (buffer-name)))
+	  ((eq choice ?g)
+	   (find-file "~/mike-maheu/gtd/gtd.org")
+	    (message "Opened:  %s" (buffer-name)))
+	  ((eq choice ?m)
+	   (find-file "~/.emacs.d/mike.org")
+	    (message "Opened:  %s" (buffer-name)))
+	  ((eq choice ?n)
+	   (find-file "~/mike-maheu/gtd/notes.org")
+	    (message "Opened:  %s" (buffer-name)))
+	  (t (message "Quit"))))
+
+
+(require 'linum)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
+
+ '(display-time-mode t)
+ '(org-agenda-files
+   (quote
+    ("~/mike-maheu/gtd/gtd.org" "~/mike-maheu/gtd/agendas.org" "~/mike-maheu/gtd/calendar.org" "~/mike-maheu/gtd/journal.org" "~/mike-maheu/gtd/mike.org" "~/mike-maheu/gtd/notes.org" "~/mike-maheu/gtd/plangtd.org" "~/mike-maheu/gtd/reminders.org" "~/mike-maheu/gtd/shopping.org" "~/mike-maheu/gtd/someday.org")))
+ '(remember-data-file "~/mike-maheu/gtd/reminders.org")
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
+#+END_SRC
+
+*** When you're starting out, tooltips, menus, and the tool bar can be very helpful. [[http://sachachua.com/blog/2014/03/emacs-basics-using-mouse/][(Emacs Basics: Using the Mouse]]). Eventually, you may want to reclaim that extra little bit of screenspace. The following code turns those things off when using a graphical Emacs. (Although I changed my mind about the menu - I want that again.)
+
+#+BEGIN_SRC emacs-lisp
+(when window-system
+  (tooltip-mode -1)
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1))
+#+END_SRC
+
+*** These are my global bindings, some help with Mac Command key
+
+#+BEGIN_SRC emacs-lisp
+;;; Global key bindigns
+
+;; How to Define Keyboard Shortcuts in Emacs
+;; http://xahlee.org/emacs/keyboard_shortcuts.html
+
+(when (eq system-type 'darwin)
+  (setq mac-command-modifier 'meta)
+  (setq mac-option-modifier nil))
+
+;; Window manipulation
+(global-set-key [(control kp-6)] 'enlarge-window-horizontally)
+(global-set-key [(control kp-4)] 'shrink-window-horizontally)
+(global-set-key [(control kp-8)] 'enlarge-window)
+(global-set-key [(control kp-2)] 'shrink-window)
+
+;; Find stuff
+(global-set-key [(f2)]              'ack)
+(global-set-key [(control f2)]      'ack-same)
+(global-set-key [(control meta f2)] 'ack-default-directory)
+(global-set-key [(meta f2)]         'find-name-dired)
+(global-set-key [(shift f2)]        'occur)
+
+;; Keyboard macros
+(global-set-key [(shift f4)] 'kmacro-start-macro-or-insert-counter)
+;; (global-set-key [(f4)]    'kmacro-end-or-call-macro)  ;; already defined
+
+;; Refresh-like
+(global-set-key [(f5)]         'revert-buffer)
+(global-set-key [(control f5)] 'revbufs)
+
+;; Indenting and alignment
+(global-set-key [(f8)]         'indent-region)
+(global-set-key [(control f8)] 'align)
+(global-set-key [(shift f8)]   'align-current)
+(global-set-key [(meta f8)]    'align-regexp)
+
+;; Version control and change related
+;(global-set-key [(control f9)]      'rails-svn-status-into-root)  ;; Move to rails mode?
+;(global-set-key [(control meta f9)] (lambda () (interactive) (svn-status default-directory)))
+(global-set-key [(control f9)] (lambda () (interactive) (magit-status default-directory)))
+(global-set-key [(f9)]         (lambda () (interactive) (magit-status default-directory)))
+(global-set-key [(meta f9)]    'autotest-switch)  ;; Move to ruby/rails mode?
+
+;; map the window manipulation keys to meta 0, 1, 2, o
+(global-set-key (kbd "M-3") 'split-window-horizontally) ; was digit-argument
+(global-set-key (kbd "M-2") 'split-window-vertically) ; was digit-argument
+(global-set-key (kbd "M-1") 'delete-other-windows) ; was digit-argument
+(global-set-key (kbd "M-0") 'delete-window) ; was digit-argument
+(global-set-key (kbd "M-o") 'other-window) ; was facemenu-keymap
+
+(global-set-key (kbd "M-O") 'rotate-windows)
+
+;; Ace Jump Mode
+(global-set-key (kbd "M-j") 'ace-jump-mode)
+
+;; Multiple Cursors
+(define-key global-map (kbd "C-c n") 'mc/mark-all-like-this)
+(define-key global-map (kbd "M-n") 'mc/mark-next-lines)
+
+;; Replace dired's M-o
+(add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "M-o") 'other-window))) ; was dired-omit-mode
+;; Replace ibuffer's M-o
+(add-hook 'ibuffer-mode-hook (lambda () (define-key ibuffer-mode-map (kbd "M-o") 'other-window))) ; was ibuffer-visit-buffer-1-window
+;; To help Unlearn C-x 0, 1, 2, o
+(global-unset-key (kbd "C-x 3")) ; was split-window-horizontally
+(global-unset-key (kbd "C-x 2")) ; was split-window-vertically
+(global-unset-key (kbd "C-x 1")) ; was delete-other-windows
+(global-unset-key (kbd "C-x 0")) ; was delete-window
+(global-unset-key (kbd "C-x o")) ; was other-window
+
+;; Open magit git status easier
+(global-set-key (kbd "C-c g") 'magit-status) ;
+
+;; Repeat
+(global-set-key [(control z)] 'repeat) ; was suspend-frame
+
+;; Window navigation
+(windmove-default-keybindings 'meta)
+
+;; Mac OS X conventions
+(global-set-key (kbd "M-a") 'mark-whole-buffer) ; was backward-sentence.
+
+;; Find matching parens
+(global-set-key (kbd "C-'") 'match-paren)
+
+;; Easy inserts
+(global-set-key (kbd "C-.") 'insert-arrow)
+
+;; ibuffer > list-buffers
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; Easier buffer killing
+(global-unset-key (kbd "M-k"))
+(global-set-key (kbd "M-K") 'kill-this-buffer)
+
+;; Improved navigation and editing (assumes misc.el)
+(global-set-key (kbd "M-Z") 'zap-up-to-char)
+(global-set-key (kbd "M-F") 'forward-to-word)
+(global-set-key (kbd "M-B") 'backward-to-word)
+
+;; Personal textmate.el bindings
+(global-set-key (kbd "C-c f") 'textmate-goto-file)
+(global-set-key [(control return)] 'textmate-next-line)
+
+;; Tags
+(global-set-key (kbd "M-,") 'pop-tag-mark) ; was tags-loop-continue
+
+;; Goto Line
+(global-set-key [remap goto-line] 'goto-line-with-feedback)
+
+;; Whitespace management
+(global-set-key (kbd "s-\\") 'fixup-whitespace)
+
+#+END_SRC
+
+These are my global settings that are needed
+
+#+BEGIN_SRC emacs-lisp
+;;; Generic emacs settings I cannot live without
+
+;; Use command as the meta key; option key as super
+(setq ns-command-modifier 'meta)
+(setq ns-option-modifier  'super)
+
+;; Don't show the startup screen
+(setq inhibit-startup-message t)
+
+;; "y or n" instead of "yes or no"
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; Highlight regions and add special behaviors to regions.
+;; "C-h d transient" for more info
+(setq transient-mark-mode t)
+(pending-delete-mode t)
+
+;; Display line and column numbers
+(setq line-number-mode    t)
+(setq column-number-mode  t)
+
+;; Modeline info
+(display-time-mode 1)
+;; (display-battery-mode 1)
+
+;; Small fringes
+(set-fringe-mode '(1 . 1))
+
+;; Emacs gurus don't need no stinking scroll bars
+(when (fboundp 'toggle-scroll-bar)
+  (toggle-scroll-bar -1))
+
+;; Explicitly show the end of a buffer
+(set-default 'indicate-empty-lines t)
+
+;; Line-wrapping
+(set-default 'fill-column 78)
+
+;; Prevent the annoying beep on errors
+;; (setq visible-bell t)
+
+;; Make sure all backup files only live in one place
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+(setq delete-old-versions -1)
+(setq version-control t)
+(setq vc-make-backup-files t)
+(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)))
+
+;; Gotta see matching parens
+(show-paren-mode t)
+
+;; Don't truncate lines
+(setq truncate-lines t)
+(setq truncate-partial-width-windows nil)
+
+;; For emacsclient
+(server-start)
+
+;; Trailing whitespace is unnecessary
+(defvar whitespace-cleanup-on-save t)
+;; (setq whitespace-cleanup-on-save nil)
+(add-hook 'before-save-hook
+	  (lambda ()
+	    (if whitespace-cleanup-on-save (whitespace-cleanup))))
+
+;; Trash can support
+(setq delete-by-moving-to-trash t)
+
+#+END_SRC
+
+HELM Configuration
+
+#+BEGIN_SRC emacs-lisp
+(use-package helm
+  :ensure t
+  :diminish helm-mode
+  :init
+  (progn
+    (require 'helm-config)
+    (setq helm-candidate-number-limit 100)
+    ;; From https://gist.github.com/antifuchs/9238468
+    (setq helm-idle-delay 0.0 ; update fast sources immediately (doesn't).
+	  helm-input-idle-delay 0.01  ; this actually updates things
+					; reeeelatively quickly.
+	  helm-yas-display-key-on-candidate t
+	  helm-quick-update t
+	  helm-M-x-requires-pattern nil
+	  helm-ff-skip-boring-files t)
+    (helm-mode))
+  :bind (("C-c h" . helm-mini)
+	 ("C-h a" . helm-apropos)
+	 ("C-x C-b" . helm-buffers-list)
+	 ("C-x b" . helm-buffers-list)
+	 ("M-y" . helm-show-kill-ring)
+	 ("M-x" . helm-M-x)
+	 ("C-x c o" . helm-occur)
+	 ("C-x c s" . helm-swoop)
+	 ("C-x c y" . helm-yas-complete)
+	 ("C-x c Y" . helm-yas-create-snippet-on-region)
+	 ("C-x c b" . my/helm-do-grep-book-notes)
+	 ("C-x c SPC" . helm-all-mark-rings)))
+(ido-mode -1) ;; Turn off ido mode in case I enabled it accidentally
+#+END_SRC
+
+Org-Mode additional modules and config
+#+BEGIN_SRC emacs-lisp
+(setq org-modules '(org-bbdb
+		      org-gnus
+		      org-drill
+		      org-info
+		      org-jsinfo
+		      org-habit
+		      org-irc
+		      org-mouse
+		      org-protocol
+		      org-annotate-file
+		      org-eval
+		      org-expiry
+		      org-interactive-query
+		      org-man
+		      org-collector
+		      org-panel
+		      org-screen
+		      org-toc))
+(eval-after-load 'org
+ '(org-load-modules-maybe t))
+
+(setq org-expiry-inactive-timestamps t)
+(bind-key "C-c r" 'org-capture)
+(bind-key "C-c a" 'org-agenda)
+(bind-key "C-c l" 'org-store-link)
+(bind-key "C-c L" 'org-insert-link-global)
+(bind-key "C-c O" 'org-open-at-point-global)
+(bind-key "C-TAB" 'org-cycle org-mode-map)
+(bind-key "C-c v" 'org-show-todo-tree org-mode-map)
+(bind-key "C-c C-r" 'org-refile org-mode-map)
+(bind-key "C-c R" 'org-reveal org-mode-map)
+
+#+END_SRC

@@ -1,0 +1,42 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode jdee-mode
+      :tags 
+        '( ("com.in28minutes.springboot.web.security" package nil nil [1 49])
+            ("org.springframework.beans.factory.annotation.Autowired" include nil nil [51 113])
+            ("org.springframework.context.annotation.Configuration" include nil nil [114 174])
+            ("org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder" include nil nil [175 282])
+            ("org.springframework.security.config.annotation.web.builders.HttpSecurity" include nil nil [283 363])
+            ("org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter" include nil nil [364 465])
+            ("SecurityConfiguration" type
+               (:typemodifiers ("public")
+                :superclasses "WebSecurityConfigurerAdapter"
+                :members 
+                  ( ("configureGlobalSecurity" function
+                       (:throws ("Exception")
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("auth" variable (:type "AuthenticationManagerBuilder") (reparse-symbol formal_parameters) [642 675]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [606 834])
+                    ("configure" function
+                       (:throws ("Exception")
+                        :typemodifiers ("protected")
+                        :arguments 
+                          ( ("http" variable (:type "HttpSecurity") (reparse-symbol formal_parameters) [877 894]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [852 1097]))                  
+                :type "class")
+                nil [482 1099]))          
+      :file "SecurityConfiguration.java"
+      :pointmax 1100
+      :fsize 1124
+      :lastmodtime '(22776 1331 836004 108000)
+      :unmatched-syntax '((IDENTIFIER 467 . 481))))
+  :file "!home!mmaheu!Development!java!SpringBoot!src!main!java!com!in28minutes!springboot!web!security!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

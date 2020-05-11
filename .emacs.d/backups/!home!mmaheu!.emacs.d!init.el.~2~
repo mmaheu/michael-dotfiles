@@ -1,0 +1,45 @@
+(setq user-full-name "Mike Maheu"
+      user-mail-address "mike@codemartians.com")
+
+(set-default 'cursor-type  'hbar)
+
+;; Load the rest of the packages
+(package-initialize nil)
+(setq package-enable-at-startup nil)
+(org-babel-load-file "~/.emacs.d/mike.org")
+
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(erc-input-face ((t (:foreground "antique white"))))
+ '(helm-selection ((t (:inherit highlight :background "cyan4" :foreground "black"))))
+ '(org-agenda-clocking ((t (:inherit secondary-selection :foreground "black"))) t)
+ '(org-agenda-done ((t (:foreground "dim gray" :strike-through nil))))
+ '(org-clock-overlay ((t (:background "SkyBlue4" :foreground "black"))))
+ '(org-done ((t (:foreground "PaleGreen" :weight normal :strike-through t))))
+ '(org-headline-done ((((class color) (min-colors 16) (background dark)) (:foreground "LightSalmon" :strike-through t))))
+ '(outline-1 ((t (:inherit font-lock-function-name-face :foreground "cornflower blue"))))
+ '(smerge-refined-added ((t (:inherit smerge-refined-change :background "darkgreen")))))
+(put 'narrow-to-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+ '(column-number-mode t)
+ '(custom-safe-themes
+   (quote
+    ("8abee8a14e028101f90a2d314f1b03bed1cde7fd3f1eb945ada6ffc15b1d7d65" default)))
+ '(display-time-mode t)
+ '(org-agenda-files
+   (quote
+    ("~/mike-maheu/gtd/gtd.org" "~/mike-maheu/gtd/agendas.org" "~/mike-maheu/gtd/calendar.org" "~/mike-maheu/gtd/journal.org" "~/mike-maheu/gtd/mike.org" "~/mike-maheu/gtd/notes.org" "~/mike-maheu/gtd/plangtd.org" "~/mike-maheu/gtd/reminders.org" "~/mike-maheu/gtd/shopping.org" "~/mike-maheu/gtd/someday.org")))
+ '(remember-data-file "~/mike-maheu/gtd/reminders.org")
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))

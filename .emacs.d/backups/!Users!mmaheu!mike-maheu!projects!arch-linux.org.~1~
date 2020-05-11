@@ -1,0 +1,11 @@
+* Arch Linux Installation Guide
+
+
+
+** First Boot
+
+
+- Bluetooth: Each boot I have to run systemctrl start bluetooth
+
+- Pianobar: Had to edit /etc/libao.conf
+  default_driver=pulse

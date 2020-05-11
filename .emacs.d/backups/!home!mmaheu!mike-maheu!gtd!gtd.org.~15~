@@ -1,0 +1,75 @@
+#+STARTUP: overview
+#+TAGS: COMPUTER(c) HOME(h) PROJECT(p) READING(r) ERRANDS(e) INPROGRESS(i) WAITING(w)
+#+STARTUP: hidestars
+#+OPTIONS: toc:2
+#+TITLE: GTD
+
+
+
+* GTD
+
+
+** Inbox
+
+*** TODO Learn how to write a Slack Bot
+*** TODO Setup GitLab environment on Azure
+
+-----
+
+** Next Actions
+
+*** TODO Figure out solution for weekly hours confirmation
+*** TODO Rovi Invoice through FieldGlass
+*** TODO Setup Go2Group for Cloud Partner
+*** TODO Configure Salesforce - lots of missing config
+*** TODO Setup training environment for SDLC
+*** TODO Hosting Pricing Sheet
+*** TODO Andessa needs Atlassian images and marketing for their rollout
+*** TODO .Net Builds using Bamboo analysis
+*** TODO VIM Config on the new Linux Workstation
+
+*** DONE HelloInnovation Proposal - SharePoint solution for asset management
+*** DONE Schneider Electric Training Plan
+*** DONE Follow up with Suprtek regarding Clearance Sponsorship
+*** DONE michaelmaheu.com DNS and email setup
+
+-----
+
+** Scheduled
+
+*** TODO [#B] Microsoft TFS training start
+    SCHEDULED: <2016-04-21 Thu>
+
+
+** Some Day Maybe
+
+*** TODO Work on Salesforce for Go2Group (Reports)
+    SCHEDULED: <2016-04-19 Tue>
+*** TODO Reset dotfiles on github and clean up emacs config
+*** TODO Mini water pump and tint windows
+
+
+** Review
+*** https://www.youtube.com/watch?v=kxFvpJPetaw
+*** https://www.youtube.com/channel/UCP7RrmoueENv9TZts3HXXtw
+*** Install PostgreSQL: https://help.ubuntu.com/community/PostgreSQL
+
+
+
+** Sales Pipeline
+
+   | Who With        | Date/Time | Call Details |
+   |-----------------+-----------+--------------|
+   | PCTestLab       |           |              |
+   | Navy (CAC)      |           |              |
+   | Bottomline      |           |              |
+   | HelloInnovation |           |              |
+   | Marriott        |           |              |
+   |-----------------+-----------+--------------|
+   | Anthem          |           |              |
+   |                 |           |              |
+
+
+** Sales Calls
+   Array Health - Sending ASA for their application upgrades. They want to move from CentOS to Windows due to having Windows support people.
+   They may just use the ASA to have us maintain the existing applications on Linux with the addition of doing the upgrades.

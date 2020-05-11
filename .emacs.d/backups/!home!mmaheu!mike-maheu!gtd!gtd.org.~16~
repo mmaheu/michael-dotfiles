@@ -1,0 +1,88 @@
+#+STARTUP: overview
+#+TAGS: COMPUTER(c) HOME(h) PROJECT(p) READING(r) ERRANDS(e) INPROGRESS(i) WAITING(w)
+#+STARTUP: hidestars
+#+OPTIONS: toc:2
+#+TITLE: GTD
+
+
+
+* GTD
+
+
+** Inbox
+
+*** TODO Learn how to write a Slack Bot
+*** TODO Setup GitLab environment on Azure
+
+-----
+
+** Next Actions
+
+*** TODO Schneider Road Map
+*** TODO QTech check on old contract
+*** TODO Apply Barber and Massage appointments to calendar
+*** TODO Create JIRA ticket for iDirect
+*** TODO Create hosting tasks for Bengen and Danny (Schneider Prod)
+    DEADLINE: <2016-05-25 Wed>
+*** TODO Enter Time for Rovi in FieldGlass
+*** TODO Rovi Invoice through FieldGlass
+*** TODO Configure Salesforce - lots of missing config
+*** TODO Hosting Pricing Sheet
+*** TODO VIM Config on the new Linux Workstation
+
+*** DONE HelloInnovation Proposal - SharePoint solution for asset management
+*** DONE Study up on Git rebasing
+*** DONE Fix proxy on Schneider Test
+*** DONE Write blog post
+*** DONE VSTS Blog Post
+*** DONE Setup Go2Group for Cloud Partner
+*** DONE Figure out solution for weekly hours confirmation
+*** DONE .Net Builds using Bamboo analysis
+*** DONE Andessa needs Atlassian images and marketing for their rollout
+*** DONE Setup training environment for SDLC
+*** DONE Call Trek to check on bars
+*** DONE Call SCAD regarding half-time
+*** DONE Schneider Electric Training Plan
+*** DONE Follow up with Suprtek regarding Clearance Sponsorship
+*** DONE michaelmaheu.com DNS and email setup
+
+-----
+
+** Scheduled
+
+*** TODO [#B] Microsoft TFS training start
+    SCHEDULED: <2016-04-21 Thu>
+
+
+** Some Day Maybe
+
+*** TODO Work on Salesforce for Go2Group (Reports)
+    SCHEDULED: <2016-04-19 Tue>
+*** TODO Reset dotfiles on github and clean up emacs config
+*** TODO Mini water pump and tint windows
+
+
+** Review
+*** https://www.youtube.com/watch?v=kxFvpJPetaw
+*** https://www.youtube.com/channel/UCP7RrmoueENv9TZts3HXXtw
+*** Install PostgreSQL: https://help.ubuntu.com/community/PostgreSQL
+
+
+
+** Sales Pipeline
+
+   | Who With        | Date/Time | Call Details |
+   |-----------------+-----------+--------------|
+   | PCTestLab       |           |              |
+   | Navy (CAC)      |           |              |
+   | Bottomline      |           |              |
+   | HelloInnovation |           |              |
+   | Marriott        |           |              |
+   |-----------------+-----------+--------------|
+   | Anthem          |           |              |
+   |                 |           |              |
+
+
+** Sales Calls
+   Array Health - Sending ASA for their application upgrades. They want to move from CentOS to Windows due to having Windows support people.
+   They may just use the ASA to have us maintain the existing applications on Linux with the addition of doing the upgrades.

@@ -1,0 +1,51 @@
+#+STARTUP: overview
+#+TAGS: COMPUTER(c) HOME(h) PROJECT(p) READING(r) ERRANDS(e)
+#+STARTUP: hidestars
+#+TITLE: Emacs Tips and Tricks
+
+* Emacs Tips and Tricks
+  Grouped by functions
+
+*** Helm
+     M-x customize-group RET helm-faces RET
+
+
+*** ERC
+    https://www.emacswiki.org/emacs/ErcCommands
+
+
+*** ace-jump-mode
+    M-j to jump mode
+
+
+*** org-mode and todos
+    C-c a t     (org-todo-list)
+
+
+*** Magit
+    C-c g
+
+
+*** Editing
+
+
+
+*** Movement
+    M-f next word
+    M-b previous word
+    C-a beginning of line
+    C-e end of line
+    C-k delete line (starting from cursor)
+    C-d delete next character after the curso
+    C-y   restore (yank) line
+    C-x i   insert (file)
+    M-<   top of file
+    M->   bottom of file
+    C-v   next screen
+    M-v   previous screen
+    C-s   search
+    M-x   and then type "goto-line"
+    C-x C-s   save file
+    C-x C-c   quit emacs
+    C-z   suspend emacs (fg to restore)
+    C-x C-w	save file to different name

@@ -1,0 +1,18 @@
+# This code sample uses the 'requests' library:
+# http://docs.python-requests.org
+import requests
+import json
+
+url = "https://www.atlassian.com/hamlet/1.0/public/pricing/query?licenseType=commercial&licenseType=academic&licenseType=starter&productKey=jira-software&productKey=jira-servicedesk&requestingApplication=WAC&cacheBuster=1543353388293"
+
+headers = {
+   "Accept": "application/json"
+}
+
+response = requests.request(
+   "GET",
+   url,
+   headers=headers
+)
+
+print(json.dumps(json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": ")))

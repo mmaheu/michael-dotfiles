@@ -1,0 +1,52 @@
+#+STARTUP: overview
+#+TAGS: COMPUTER(c) HOME(h) PROJECT(p) READING(r) ERRANDS(e) INPROGRESS(i) WAITING(w)
+#+STARTUP: hidestars
+#+OPTIONS: toc:nil
+#+TITLE: Go2Group Blog Posts
+
+
+* Epic or Feature You Ask? **DRAFT**
+
+
+** Big Picture
+   I often get asked, what is the difference between an Epic and Feature. This question raises several insteresting points in my mind. First of all does the person asking the question
+   understand scrum, and secondly how are they practicing Agile currently. The practicing part is important. Lately everyone seems more worried about tooling than the actuall Agile principles.
+   Its kind of like when people try to do GTD (Getting Things Done), they tend to get all worked up about whether to use Everote, WunderList or the like. At Go2Group we tend to implement two
+   application stacks, one being VSTS/TFS based and the other being Atlassian (JIRA, Confluence, BitBucket, and Bamboo). So as you would expect, when someone asks me that question, I come back
+   with several questions of my own. Also, the reason I bring up tooling is because they all tend to use a slightly different default set of work item types. For example JIRA starts out with Epics
+   and Stories. VSTS/TFS starts out with Features and Stories. As you can see in the image, you must select Epic if you want to use Epics. In JIRA there is a section/columnn on the scrum rapid board
+   that will display Epics. You can't remove this or change the terminology.
+
+   Ok so now that we know the tooling is configurable to a certain extent, lets get back to our question. The universal answer, it depends. No really, as I eluded to earlier, there are many factors.
+   The most important one being, how do you gather requirements. Is it a small team that writes up stories based on user requests or perhaps you have a team of product owners who were BAs (Business Analysts)
+   that were use to writing large use cases. Now they are breaking them down into smaller pieces as we would expect. Also, is there a group of senior managment types that want to see things rolled up into
+   intiatives or across projects. Not to go back to tooling, but I am also often asked how can we have a view that shows us what is going on across projects? They are also asking to see the heirarchy
+   of the requirements and dependecies. Well yes most companies struggle to bridge the gap between waterfall and their new Agile process. They struggle to trust capacity planning with story points etc...
+   Oh and by the way the term Feature comes from waterfall. Personally I do not use or recommend using Feature. Ok back to the point. If you are the larger shop that needs to roll things up and provide
+   that almost PMO view of the requirements pipeline, it may make sense to use Epics, Features, and Stories. Of course
+   you will also have tasks and bugs as well. If you are the company in the sweet loft office in Soho, then go with epics and stories. Now that we have cleared all that up, lets look at the differences.
+   Keep in mind this is subjective and we should not create bariers around these terms. The most important item is the Story. The Epic and Story are basically nice buckets or tags to group our well written
+   stories
+
+    #+CAPTION: JIRA Issue Types
+     #+NAME:   fig:VSTS
+   [[file:jira.png][file:jira.png]]
+
+
+    #+CAPTION: VSTS Work Item Types
+     #+NAME:   fig:VSTS
+   [[file:vsts.png][file:vsts.png]]
+
+
+
+*** The Epic
+    The Epic is just a large Story. It should describe the big picture. For example If I need to start writing the requirements for the accounting part of the application, I would start wirting Epics. Once
+    the Epics were written I would then start breaking them down into smaller consumabele bites which would be the Stories. In addition I could declare a theme which would be a lable that groups that series of
+    Stories. So again, the Epic is a container that describes what the large set of functionality is about.
+
+*** The Feature
+    A Feature if you choose to use it is really similar to a theme. It holds several Stories that relate back up to the Feature and then the Epic. It is essentially the same thing as using Epic, Story, and
+    Theme. Another example would be if the Epic was Accounting System, a Feature could be Create Account while the Stories could be the types of accounts that the user can create. Obviously we could break the
+    Stories down further if necessary.
+
+    (Here I will sum up the over all theme of the post and come to a conclusion)

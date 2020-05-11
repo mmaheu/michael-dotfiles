@@ -1,0 +1,59 @@
+#+STARTUP: overview
+#+TAGS: COMPUTER(c) HOME(h) PROJECT(p) READING(r) ERRANDS(e) INPROGRESS(i) WAITING(w)
+#+STARTUP: hidestars
+#+OPTIONS: toc:2
+#+TITLE: Mikes GTD File
+
+
+
+
+* GTD
+
+
+** Inbox
+
+*** TODO Learn how to write a Slack Bot
+*** TODO Work on Salesforce for Go2Group (Reports)
+*** TODO Setup GitLab environment on Azure
+*** TODO Talk with Doug regarding VSTS and ConnectAll
+    SCHEDULED: <2016-03-09 Wed>
+*** TODO Microsoft TFS training start
+    SCHEDULED: <2016-03-09 Wed>
+*** TODO Clean up org files and complete the Github setup for org files
+
+
+** Next Actions
+
+*** TODO Setup Go2Group for Cloud Partner
+*** TODO Finish Microsoft Demo Content                               :MICROSOFT:
+    SCHEDULED: <2015-10-21 Wed>
+
+
+** Scheduled
+
+
+** Some Day Maybe
+
+*** TODO Reset dotfiles on github and clean up emacs config
+*** TODO Mini water pump and tint windows
+
+
+** Review
+*** https://www.youtube.com/watch?v=kxFvpJPetaw
+*** https://www.youtube.com/channel/UCP7RrmoueENv9TZts3HXXtw
+*** Install PostgreSQL: https://help.ubuntu.com/community/PostgreSQL
+
+
+
+** Calls
+
+   | Who With | Date/Time | Call Details |
+   |----------+-----------+--------------|
+   |          |           |              |
+   |          |           |              |
+   |          |           |              |
+   |          |           |              |
+   |          |           |              |
+   |----------+-----------+--------------|
+   |          |           |              |
+   |          |           |              |

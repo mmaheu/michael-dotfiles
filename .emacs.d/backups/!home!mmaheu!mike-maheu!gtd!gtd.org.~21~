@@ -1,0 +1,97 @@
+#+STARTUP: overview
+#+TAGS: COMPUTER(c) HOME(h) PROJECT(p) READING(r) ERRANDS(e) INPROGRESS(i) WAITING(w)
+#+STARTUP: hidestars
+#+OPTIONS: toc:2
+#+TITLE: GTD
+
+
+
+* GTD
+
+
+** Inbox
+
+*** TODO Learn how to write a Slack Bot
+*** TODO Setup GitLab environment on Azure
+
+-----
+
+** Next Actions
+
+*** TODO Anthem DevOps Omid extension
+*** TODO Hosting Pricing Sheet
+*** TODO CLS Bank coding for 2Factor
+*** TODO Cultivate Blog Topics with Guha
+
+*** DONE Carlyle ASA is expiring with 200 hours
+*** DONE QTech check on old contract
+*** DONE [#B] Smarsh SOW, check status
+*** DONE Schneider PO and payment.
+*** DONE Nascar ASA and scoping for AWS Migration
+
+
+*** DONE HelloInnovation Proposal - SharePoint solution for asset management
+*** DONE Create iDirect tickets in JIRA
+*** DONE Enter Time for Rovi in FieldGlass
+*** DONE Check into Plugin Training and Dev for Acxium (Little Rock)
+*** DONE Create hosting tasks for Bengen and Danny (Schneider Prod)
+    DEADLINE: <2016-05-25 Wed>
+*** DONE Create JIRA ticket for iDirect
+*** DONE Apply Barber and Massage appointments to calendar
+*** DONE Study up on Git rebasing
+*** DONE Fix proxy on Schneider Test
+*** DONE Write blog post
+*** DONE VSTS Blog Post
+*** DONE Setup Go2Group for Cloud Partner
+*** DONE Figure out solution for weekly hours confirmation
+*** DONE .Net Builds using Bamboo analysis
+*** DONE Andessa needs Atlassian images and marketing for their rollout
+*** DONE Setup training environment for SDLC
+*** DONE Call Trek to check on bars
+*** DONE Call SCAD regarding half-time
+*** DONE Schneider Electric Training Plan
+*** DONE Follow up with Suprtek regarding Clearance Sponsorship
+*** DONE michaelmaheu.com DNS and email setup
+
+-----
+
+
+** Scheduled
+
+*** TODO [#B] Microsoft TFS training start
+    SCHEDULED: <2016-04-21 Thu>
+
+
+** Some Day Maybe
+
+*** TODO VIM Config on the new Linux Workstation
+*** TODO Work on Salesforce for Go2Group (Reports)
+    SCHEDULED: <2016-04-19 Tue>
+*** TODO Reset dotfiles on github and clean up emacs config
+*** TODO Mini water pump and tint windows
+
+
+** Review
+*** https://www.youtube.com/watch?v=kxFvpJPetaw
+*** https://www.youtube.com/channel/UCP7RrmoueENv9TZts3HXXtw
+*** Install PostgreSQL: https://help.ubuntu.com/community/PostgreSQL
+
+
+
+** Sales Pipeline
+
+   | Who With        | Date/Time | Call Details |
+   |-----------------+-----------+--------------|
+   | PCTestLab       |           |              |
+   | Navy (CAC)      |           |              |
+   | Bottomline      |           |              |
+   | HelloInnovation |           |              |
+   | Marriott        |           |              |
+   |-----------------+-----------+--------------|
+   | Anthem          |           |              |
+   |                 |           |              |
+
+
+** Sales Calls
+   Array Health - Sending ASA for their application upgrades. They want to move from CentOS to Windows due to having Windows support people.
+   They may just use the ASA to have us maintain the existing applications on Linux with the addition of doing the upgrades.

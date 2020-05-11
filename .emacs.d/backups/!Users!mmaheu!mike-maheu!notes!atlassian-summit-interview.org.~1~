@@ -1,0 +1,16 @@
+#+STARTUP: overview
+#+TAGS: COMPUTER(C) HOME(H) PROJECT(P) READING(R) ERRANDS(E) INPROGRESS(I) WAITING(W)
+#+STARTUP: hidestars
+#+OPTIONS: TOC:nil
+#+OPTIONS: AUTHOR:nil
+#+TITLE: SUMMIT INTERVIEW 2019
+
+
+
+1) How do you know if microservices are right for your company? For example, at Atlassian, we think it's hard to justify the time and cost to make the move for teams under 50. Do you have any guiding principles on when to make the move?
+
+2) How does the role of IT change in a "you build it, you run it" world? As the lines blur between Dev and Ops, what skills should professionals in each role build to be successful going forward?
+
+3) You talk about cloud-native being about HOW applications are built, not where they're going. At a high level, what are the key elements of a cloud-native app?
+
+4) What are some of the culture aspects that make teams successful? Are there frameworks and communication methods that teams should use, in addition to their tech stack, to perform at higher levels?

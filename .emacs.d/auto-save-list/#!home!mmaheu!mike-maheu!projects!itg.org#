@@ -1,0 +1,94 @@
+
+
+
+
+
+1.      Jira Production:
+
+ 
+
+a.      SSO integration – Timothy successfully imported users in Jira.
+
+ 
+
+b.      Data Migration
+
+            Stories – Jeimmi added fields
+
+Defects - Jeimmi added fields
+
+Tasks - Jeimmi added fields
+
+Test Case / Test Run management – attached is the pdf.  Need to be added.
+
+Cheney to confirm test cases/test runs can automatically be assigned to corresponding stories/issues.
+
+ 
+
+c.     Questions on fields:
+
+ 
+
+Rally Field
+	
+
+Jira Field
+	
+
+Recommendation
+
+Milestones
+	
+
+Label???
+	
+
+Peter to look into this.
+
+Blocked
+	
+
+Same Rally format as check box and leave in current status.
+	
+
+·         Check box to be phased out.
+
+·         Recommend to use workflow.  Can create constraints.  More functionality. 
+
+Scheduled State = Backlog
+	
+
+To Do
+	
+
+Need to confirm with Frank and Ellen on Tuesday’s call.
+
+ 
+
+ 
+
+d.      ETA of field configuration – scheduled meeting on Tuesday, 5/30 to review fields.
+
+ 
+
+e.      ETA of data migration – Once fields are verified, this will take a minute to start migration.
+
+ 
+
+f.        External email address - still waiting on WebAdmin. 
+
+ 
+
+2) ITG Teams and Projects:
+
+ 
+
+a) Triton and Triton Black – Recommend to start entering in new projects after field and project verification and Rally/Jira sync up to protect the data.
+
+ 
+
+b) Atlas Core – Mike to work on this tomorrow.
+
+ 
+
+c) Algos – Will have to wait until data migration. 

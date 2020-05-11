@@ -1,0 +1,18 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode html-mode
+      :tags 
+        '( ("Adding more Hellos HEllo K8S" section (:members 
+              ( ("Adding more Hellos HEllo K8S" section nil nil [15 69]))              ) nil [8 69]))          
+      :file "index.html"
+      :pointmax 69
+      :fsize 68
+      :lastmodtime '(23272 57747 989612 575000)
+      :unmatched-syntax nil))
+  :file "!Users!mmaheu!Development!workshop!dallas!src!main!resources!static!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

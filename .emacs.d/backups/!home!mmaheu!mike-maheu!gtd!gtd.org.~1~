@@ -1,0 +1,52 @@
+#+STARTUP: overview
+#+TAGS: COMPUTER(c) HOME(h) PROJECT(p) READING(r) ERRANDS(e) INPROGRESS(i) WAITING(w)
+#+STARTUP: hidestars
+#+OPTIONS: toc:2
+#+TITLE: Mikes GTD File
+
+* GTD
+
+
+** Inbox
+*** TODO Talk with Doug regarding VSTS and ConnectAll
+    SCHEDULED: <2016-03-09 Wed>
+*** TODO Microsoft TFS training start
+    SCHEDULED: <2016-03-09 Wed>
+*** TODO Call Load Place
+    SCHEDULED: <2016-03-09 Wed>
+*** Clean up org files and complete the Github setup for org files
+
+
+** Next Actions
+*** TODO Finish Microsoft Demo Content                               :MICROSOFT:
+    SCHEDULED: <2015-10-21 Wed>
+*** Reset dotfiles on github and clean up emacs config
+*** Redo Emacs colors and check colors for Todo.txt
+
+** Scheduled
+*** TODO Update Linked In profile and resume                           :HOME:
+    DEADLINE: <2016-03-18 Fri>
+
+** Some Day Maybe
+*** TODO Put Roof Rack On Mini
+*** TODO Tint Windows in Mini
+*** TODO Mini water pump and tint windows
+
+
+** Review
+*** https://www.youtube.com/watch?v=kxFvpJPetaw
+*** https://www.youtube.com/channel/UCP7RrmoueENv9TZts3HXXtw
+*** Install PostgreSQL: https://help.ubuntu.com/community/PostgreSQL
+
+
+
+** Calls
+
+   | Who With        | Date/Time | Call Details        |
+   |-----------------+-----------+---------------------|
+   | Liams Glasses   |           |                     |
+   | IRS             |           |                     |
+   | Virginia Toll   |           |                     |
+   |                 |           |                     |
+   |                 |           |                     |
+   |-----------------+-----------+---------------------|

@@ -1,0 +1,32 @@
+[user]
+	name = mmaheu
+	email = mike@codemartians.com
+	user = mmaheu
+[core]
+	excludesfile = /Users/mmaheu/.gitignore_global
+	autocrlf = input
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[alias]
+	lo = log --graph --all --decorate --oneline
+	co = checkout
+	br = branch
+[push]
+	default = simple
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	required = true
+	clean = git-lfs clean -- %f
+	process = git-lfs filter-process
+[credential]
+	helper = store
+[commit]
+	template = /Users/mmaheu/.stCommitMsg

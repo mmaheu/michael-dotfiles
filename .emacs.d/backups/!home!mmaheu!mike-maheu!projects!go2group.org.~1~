@@ -1,0 +1,63 @@
+#+STARTUP: overview
+#+STARTUP: hidestars
+#+TITLE: Go2Group Infrastructure File
+
+
+* Sales Pipeline
+  I will keep this area for current sales pipeline opps and tasks
+
+** Pipeline
+  - Cambridge : Sending quote for hosting. This will make their TFS migration easier than with JIRA Cloud
+  - Marriott : New additional work for Ping Idenity integration for SSO
+  - Anthem : Bill Jameson hosting of JIRA and Confluence on Atlassian Cloud. ASA to go with it.
+  - Anthem : DevOps, waiting on approvals and signature. Should start April 1
+  - Blackbaud : Opportunity for ConnectAll and hosting of their Atlassian application stack
+  - Eric Lynch contact from Bob : Reach out to him
+  - Sony Music : Try to reconnect
+  - Johns Hopkins : Waiting for signature
+
+
+
+
+
+
+* Infrastructure:
+
+** Azure
+
+
+** Servers
+  - Perforce: 74.103.66.7:9424
+  - jira.go2group.com
+  - doc.go2group.com
+  - www.go2group.net
+  - https://portal.go2group.com
+  - Stash.go2group.com(This is internal use only, you need to vpn then access it)
+    Rackspace 1: mycould.rackspace.com
+
+  - User: mmaheu
+  - Password: b@ck2g2g
+  - my.rackspace.com, you should get an invitation email from backspace
+  - password for mycloud.rackspace.com is : XiaoNeu69!
+
+** Demo Servers:
+
+   - JIRA: http://192.168.90.71:8080/jira/secure/Dashboard.jspa
+   - Confluence: http://192.168.90.71:8090/dashboard.action
+   - Fecru: http://192.168.90.71:8060/
+   - Bamboo: http://192.168.90.71:8085/allPlans.action
+   - Stash: http://192.168.90.71:7990/login
+   - admin/admin in all apps
+
+** Sugar
+   -success.go2group.com
+   -user: mike
+   -pw: Boom
+
+
+
+** Amazon
+
+ssh -v -i /home/mmaheu/.ssh/mike-keys.pem ubuntu@ec2-54-148-184-169.us-west-2.compute.amazonaws.com
+
+MySQL - root g2g4me!

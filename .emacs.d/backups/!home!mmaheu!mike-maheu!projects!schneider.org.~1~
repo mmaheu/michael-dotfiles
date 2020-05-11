@@ -1,0 +1,61 @@
+#+STARTUP: OVERVIEW
+#+TAGS: COMPUTER(C) HOME(H) PROJECT(P) READING(R) ERRANDS(E) INPROGRESS(I) WAITING(W)
+#+STARTUP: HIDESTARS
+#+OPTIONS: TOC:2
+#+TITLE: SCHNEIDER ELECTRIC TRAINING
+
+
+* SCHNEIDER ELECTRIC SDLC TRAINING PLAN
+  THE TRAINING WILL TAKE 2 DAYS WITH AN ADDITIONAL HALF DAY FOR Q&A
+
+** DAY ONE
+   - INTRO TO JIRA
+     - THE JIRA PLATFORM
+     - DASHBOARDS
+     - PROJECTS
+     - FILTERS
+     - ISSUES
+     - WORKFLOWS
+     - PERMISSIONS
+     - REPORTING, NOTIFICATIONS, AND SUBSCRIPTIONS
+     - INTEGRATIONS
+     - ADDONS
+
+   - INTRO TO CONFLUENCE
+     - THE CONFLUENCE PLATFORM
+     - SPACES
+     - PAGES
+     - BLUEPRINTS
+     - LAYOUTS
+     - SPACE ADMIN
+     - PERMISSIONS
+     - TRACEABILTY
+     - REQUIREMENTS PIPELINE
+
+
+** DAY TWO
+   - BITBUCKET AND GIT
+     - GIT SETUP FOR THE DEVELOPER
+     - GIT BASICS
+     - AGILE DEVELOPMENT WITH GIT
+     - BRANCHING STRATEGIES
+     - BITBUCKET PLATFORM
+     - REPO MANAGEMENT
+     - PULL REQUESTS
+     - ADVANCED GIT
+     - JIRA integration and traceability
+
+   - Bamboo
+     - The Bamboo Platform
+     - Bamboo dashboard
+     - Git and branching integration
+     - Build Plans
+     - Stages
+     - Jobs
+     - Triggers
+     - Unit tests
+     - .Net builds
+     - Build traceability
+
+** Day Three (half)
+   - Q&A

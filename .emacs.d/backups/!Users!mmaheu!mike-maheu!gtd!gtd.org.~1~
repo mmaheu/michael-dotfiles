@@ -1,0 +1,42 @@
+#+STARTUP: overview
+#+TAGS: COMPUTER(C) HOME(H) PROJECT(P) READING(R) ERRANDS(E) INPROGRESS(I) WAITING(W)
+#+STARTUP: hidestars
+#+OPTIONS: TOC:nil
+#+OPTIONS: AUTHOR:nil DATE:nil
+#+TITLE: GTD
+
+
+* GETTING THINGS DONE :
+
+
+*** INBOX
+
+***** Plan camping trip
+
+*** NEXT ACTIONS
+
+***** TODO Pay MPWW
+      SCHEDULED: <2017-11-18 Sat>
+
+*** WORK
+
+***** TODO Add the Docker and Artifactory parts to DevOps Demo
+***** TODO Install OpenStack and get to know it
+***** TODO Hosting documentation and Security
+
+*** SOME DAY MAYBE
+
+***** TODO LEARN DOCKER
+***** TODO LEARN ANSIBLE
+***** TODO LEARN ARTIFACTORY and Nexus
+***** TODO LEARN Python
+
+
+*** REVIEW
+
+
+
+
+*** CALLS
+
+***** TODO Call Lexington Law

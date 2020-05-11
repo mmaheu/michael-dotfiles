@@ -1,0 +1,34 @@
+#+STARTUP: overview
+#+TAGS: CLIENT(c) PROJECT(p)
+#+STARTUP: hidestars
+#+OPTIONS: toc:2
+#+TITLE: Blackbaud File
+
+
+* Blackbaud Projects and Infrastructure
+
+
+** Servers
+   - 199.119.126.6 port 22.  Your user name is mikem
+   - user:
+   - pw: 0G3H6yuG3#
+
+
+** Onsite Meeting with Jason and Team
+
+   Short Term Goals
+   CIO and Services Teams are using JIRA for Agile
+   BitBucket, CRM, Agile, Performance
+
+
+   Timeline:
+   Number of Users -
+   ASA cause they needed guidance
+   2000 + users
+   Having trouble managing active users
+   ADFS SSO which us SAML based
+
+
+
+
+   Licensing

@@ -1,0 +1,165 @@
+#+Startup: overview
+#+TAGS: COMPUTER(c) HOME(h) PROJECT(p) READING(r) ERRANDS(e) GO2GROUP(g)
+#+STARTUP: hidestars
+#+TITLE: Southwest Airlines
+
+
+* Initial Onsite Assessment Meetings
+  Southwest Airlines is trying to move to the Atlassian stack inlcuding Git/Stash. They are interested in automating the implemenation
+  of the tools. In other words they want to spin up a virtual invironment that would inlude a JIRA,Confluence, and Stash instance.
+  The tools will be auto configure including licenses and projects. This will be done with Chef and some customizations with a particular
+  Gem library.
+  
+
+
+** SWA Reset Meeting with Jason, Dave, ?Steve
+
+****** Core Zip will change so taking a global xml may not work
+****** Leave out env specific (Leave Base URL)
+****** Concerns about our pipeline to Thought Works
+
+****** Confluence allow to parameteriz global values.
+
+
+** They want to be able to prmote schemes to another instance of JIRA by them selves.
+
+
+
+** Confluence Dynamic XML Changes before Import
+*** crowd.server.url
+*** Confluence Bandana Object
+*** Confluence Bandana Record
+*** BaseURL
+*** Many more
+
+** SWA Reset Planning
+*** Document the AddOns
+*** Portfolio Management - FOLIO,
+
+** Call with Gene to reset and plan
+*** Truman is doing well
+*** Understand what work we are doing
+*** JIRA Stories
+*** Cards will get into Reporting and Analytics
+*** pre-work for getting our story together
+*** They want to see traction
+
+*** Pair program ?
+*** Look at backlog for review
+*** Confluence reporting needs more defined requirements
+*** Projects and dependencies within between Stories (Spike)
+*** Gadget Tree Reporting based on role and Product
+*** David is now the new PM
+*** CI Build and Test
+
+
+** TODO [#A] SOW Phase 2
+
+** Agile Focussed Process and SDLC from Thought Works
+
+*** They are trying to work four streams into the new process and tooling
+
+    -Process Stream (Work packages, Epics, Stories)
+    -CI Stream (Stash)
+    -Deployment Stream (Jenkins)
+    -Automation Stream
+
+*** Self Service Tool Buildout (Automated)
+
+**** CI
+     -Stash Repository
+     -Artifact Management
+     -Branching Strategy
+     -Deployment VS Activation
+     -Small Team VS Large team branching strategies
+     -
+
+***** CI Process and Workflow
+       -Build Server build out
+       -Hook in CI server into Git for branch monitoring
+       -Gradle calls
+       -Static Code Analysis, Sonar, Unit Tests
+
+
+***** Artifact Repository and Management
+      -Package and storing of artificacts
+      -Deploy grabs artificats and pushes them the appropriate region
+      -Build notes will auto generate in Confluence
+
+****** First Epics
+       Stash/Git
+       -Chef Automation
+       -Stash Installation
+       -(MikeM) to design the Stash distributed approach and deployment architecture for Git isntances
+       -(MikeM) Git backup to network device.
+       -(MikeM) How will Stash instances work with databases. The users will be stored in Crowd
+       -Development Environement
+
+       Build Server
+       -The will automate build server deployment and this could be for example on Bamboo or on single remote agent. It depends on Team size
+       -Security
+       -Build server configuraiton
+       -Choose build server platform (Bamboo,Jenkins)
+       -Simple Gradle build
+
+
+
+       #Note They have Chef server but are more just running individual Chef scripts currently
+
+
+** Existing Backlog Review for this Project
+
+***  Bob's Focus - Setup a meeting with Bob to discuss how we will collaborate.
+***  Post resilts on Confluence.
+***  Bob will show me what he has done so far on his JIRA instance
+
+
+Customization to pull data from multi jira to a single Confluence space for senior management
+
+
+* Sprint
+  February 10th Onsite
+** Items for Mike
+
+*** TODO JIRA Configuration automation with REST Plugin (Jobin)
+    Get with " " about what has been configure with JIRA so far
+
+*** TODO Production Federation
+    Production needs to have redundancy for phase 1
+    https://confluence.atlassian.com/display/ATLAS/Federating+JIRA+-+Managing+Multiple+Instances#FederatingJIRA-ManagingMultipleInstances-BestPracticesformanagingmultipleJIRAinstances
+
+*** Possible OAuth gadget dance using API
+    https://developer.atlassian.com/display/JIRADEV/JIRA+REST+API+Example+-+OAuth+authentication
+
+*** DONE Crowd Authentication
+    CLOSED: [2014-02-13 Thu 10:12]
+
+*** DONE Applinks Setup and Automation
+    CLOSED: [2014-02-13 Thu 10:11]
+    For this one, Confluence asks for OAuth acceptance before the gadget can be added. They need to automate some Confluence page creations, that contain JIRA gadgets.
+    - The authentication should on happen once. They are saying everyone is being forced to auth (oauth)
+
+*** DONE Fixed Git Config issue with shared machine. They were commiting code that showed them as the originating clone user. Setting gitconfig each time, will change the git user.
+    CLOSED: [2014-02-13 Thu 10:40]
+
+
+****** TODO Administration
+       - weekly hourly report
+       - task list with assignees
+       - Get Atlassian Contact for Enterprise licenses
+       - ELA (custom)
+
+* Confluence Reporting from JIRA Data
+  - Reporting and some Views
+  -
+** REST API Based on the Domain Concept
+   - Confluence Radiator
+   - Reporting/View (Product or Program level, Features -> Stories or Spikes)
+     - Create New Space in Confluence
+   - Menu Item for SWA or Scaled. Then someone with Project permissions, should be able to add remove Teams.
+     - Create Team APC-293
+     - Rapid Board, Filter, Swimlanes, Columns
+     - Custom Field = Team - Drives Agile Board
+     - Team Name will be passed in from Chef
+     - Columns (TODO, DEV, etc...)
+     -

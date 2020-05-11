@@ -1,0 +1,42 @@
+#+STARTUP: overview
+#+TAGS: COMPUTER(c) HOME(h) PROJECT(p) READING(r) ERRANDS(e) INPROGRESS(i) WAITING(w)
+#+STARTUP: hidestars
+#+OPTIONS: toc:2
+#+TITLE: GTD
+
+
+
+* GTD
+
+
+** Inbox
+
+*** TODO Learn how to write a Slack Bot
+*** TODO Pierce's financial aid for Summer
+
+** Next Actions
+
+** Scheduled
+
+** Some Day Maybe
+
+** Review
+*** https://www.youtube.com/watch?v=kxFvpJPetaw
+*** https://www.youtube.com/channel/UCP7RrmoueENv9TZts3HXXtw
+*** Install PostgreSQL: https://help.ubuntu.com/community/PostgreSQLc** Sales Pipeline
+
+   | Who With        | Date/Time | Call Details |
+   |-----------------+-----------+--------------|
+   | PCTestLab       |           |              |
+   | Navy (CAC)      |           |              |
+   | Bottomline      |           |              |
+   | HelloInnovation |           |              |
+   | Marriott        |           |              |
+   |-----------------+-----------+--------------|
+   | Anthem          |           |              |
+   |                 |           |              |
+
+
+** Sales Calls
+   Array Health - Sending ASA for their application upgrades. They want to move from CentOS to Windows due to having Windows support people.
+   They may just use the ASA to have us maintain the existing applications on Linux with the addition of doing the upgrades.

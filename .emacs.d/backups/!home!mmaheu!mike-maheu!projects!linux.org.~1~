@@ -1,0 +1,79 @@
+* Linux Notes
+
+
+** Adding User and Sudo
+
+   sudo useradd -d /home/testuser -m testuser
+   sudo passwd testuser
+   sudo usermod -a -G sudo <username>
+
+
+** PostgreSQL
+   sudo -u postgres psql
+
+*** Tunnel Setup For pgadmin for Mac (Linux just works)
+    - ssh -fNg -L 5555:localhost:5432 mmaheu@g2g-dev.cloudapp.net
+    - Open pgadmin3 and connect to localhost on 5555
+    - sudo killall ssh
+
+** SSL
+
+   - generate self signed cert (will add url or commands)
+
+*** SSL Self Signed Cert
+
+
+
+
+*** ip ro show
+
+
+
+
+
+*** Apache VirtualHost Setup
+
+
+
+
+
+
+
+
+*** Importing cert into keystore
+    -Download the PKCS#7 version of your certificate to your server
+    Use the following command to install the PKCS#7 certificate into your keystore. You MUST use the same keystore used for your private key and CSR.
+
+    -keytool -import -trustcacerts -alias tomcat -file your_site_name.p7b -keystore mykeystore.jks
+
+    -You MUST you the same alias used when the keystore was created, in this case the alias used was tomcat
+
+    -Enter your keystore password
+    You should get the follow response:
+    ... is not trusted. Install reply anyway? [no]:  yes
+
+    Enter 'yes' and hit Enter.
+    You should get the following response:
+    Certificate reply was installed in keystore
+
+** Commands for Various Odd Things
+
+*** systemctl start haldaemon.service
+
+
+* TMUX
+** Basic Commands
+
+Ctrl+b " - split pane horizontally.
+Ctrl+b % - split pane vertically.
+Ctrl+b arrow key - switch pane.
+Hold Ctrl+b, don't release it and hold one of the arrow keys - resize pane.
+Ctrl+b c - (c)reate a new window.
+Ctrl+b n - move to the (n)ext window.
+Ctrl+b p - move to the (p)revious window.
+
+
+* SE Linux
+
+** Commands to allow for HTTPD Proxy
+   -setsebool -P httpd_can_network_connect 1

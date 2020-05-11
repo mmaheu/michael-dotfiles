@@ -1,0 +1,29 @@
+# This code sample uses the 'requests' library:
+# http://docs.python-requests.org
+import requests
+import json
+import csv
+
+
+url = "https://www.atlassian.com/hamlet/1.0/public/pricing/query?licenseType=commercial&licenseType=academic&licenseType=starter&productKey= \
+        -software&productKey=jira-servicedesk&requestingApplication=WAC&cacheBuster=1543353388293"
+
+headers = {
+   "Accept": "application/json"
+}
+
+response = requests.request(
+   "GET",
+   url,
+   headers=headers
+)
+
+atlassian_pricing = json.dumps(json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": "))
+
+with open('pricing.json', 'w') as json_file:
+  json.dump(atlassian_pricing, json_file)
+
+print(atlassian_pricing)
+
+
+# employee_data = '{"employee_details":[{"employee_name": "James", "email": "james@gmail.com", "job_profile": "Sr. De# veloper"},{"employee_name": "Smith", "email": "Smith@gmail.com", "job_profile": "Project Lead"},.....]}'

@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Offers</h1>
+<div id="main-container" class="container">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Brand</th>
+      <th>Amount</th>
+      <th>Category</th>
+      <th>Starred</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <% @offers.each do |offer| %>
+      <tr>
+	<td><%= offer.name %></td>
+	<td><%= offer.description %></td>
+	<td><%= offer.brand %></td>
+	<td><%= number_to_currency(offer.amount) %></td>
+	<td><%= offer.category.name if offer.category_id %> </td>
+	<td><%= offer.star %></td>
+	<td><%= link_to 'Show', offer %></td>
+	<td><%= link_to 'Edit', edit_offer_path(offer) %></td>
+	<td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Offer', new_offer_path %>
+
+</div>

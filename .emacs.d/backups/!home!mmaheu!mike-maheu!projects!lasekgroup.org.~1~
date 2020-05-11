@@ -1,0 +1,12 @@
+* Lacek
+
+
+** Plugin Development for their custom plugin
+
+   JIRA has a lot of highly sensitive PII data. They are a marketing company that sends out, tracks, and analysis emails
+   One restriction is that the data can't comingle. Ford cant see Dodge info. They used permissions to issolate the projects.
+   Assign project at time of creation at the time of adding the account. In the Create Menu, they added the Create Project button
+   It uses AD to verify permissions. They assign permissions from there. Meta data values that are collected and saved.
+   Used for reporting purposes. They also have custom scripts. Fields Samba Link and QDrive.
+
+   They are using ScriptRunner as well. One script finds the value for QDrive and SamabLink. They add creative assets on these drives.

@@ -1,0 +1,59 @@
+#+STARTUP: overview
+#+TAGS: COMPUTER(c) HOME(h) PROJECT(p) READING(r) ERRANDS(e) INPROGRESS(i) WAITING(w)
+#+STARTUP: hidestars
+#+OPTIONS: toc:2
+#+TITLE: GTD
+
+
+
+* GTD
+
+
+** Inbox
+
+*** TODO Learn how to write a Slack Bot
+*** TODO Pierce's financial aid for Summer
+
+** Next Actions
+
+*** TODO Blog Post - CI with BitBucket
+*** TODO Hosting Pricing Sheet
+*** TODO Blog Post - Emacs and Git
+
+
+
+** Scheduled
+
+*** TODO [#B] Microsoft TFS training start
+    SCHEDULED: <2016-04-21 Thu>
+
+
+** Some Day Maybe
+
+*** TODO VIM Config on the new Linux Workstation
+*** TODO Work on Salesforce for Go2Group (Reports)
+    SCHEDULED: <2016-04-19 Tue>
+*** TODO Reset dotfiles on github and clean up emacs config
+*** TODO Mini water pump and tint windows
+
+
+** Review
+*** https://www.youtube.com/watch?v=kxFvpJPetaw
+*** https://www.youtube.com/channel/UCP7RrmoueENv9TZts3HXXtw
+*** Install PostgreSQL: https://help.ubuntu.com/community/PostgreSQLc** Sales Pipeline
+
+   | Who With        | Date/Time | Call Details |
+   |-----------------+-----------+--------------|
+   | PCTestLab       |           |              |
+   | Navy (CAC)      |           |              |
+   | Bottomline      |           |              |
+   | HelloInnovation |           |              |
+   | Marriott        |           |              |
+   |-----------------+-----------+--------------|
+   | Anthem          |           |              |
+   |                 |           |              |
+
+
+** Sales Calls
+   Array Health - Sending ASA for their application upgrades. They want to move from CentOS to Windows due to having Windows support people.
+   They may just use the ASA to have us maintain the existing applications on Linux with the addition of doing the upgrades.

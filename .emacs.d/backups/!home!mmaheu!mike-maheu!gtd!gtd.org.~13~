@@ -1,0 +1,86 @@
+#+STARTUP: overview
+#+TAGS: COMPUTER(c) HOME(h) PROJECT(p) READING(r) ERRANDS(e) INPROGRESS(i) WAITING(w)
+#+STARTUP: hidestars
+#+OPTIONS: toc:2
+#+TITLE: Mikes GTD File
+
+
+* GTD
+
+
+** Inbox
+
+*** TODO Learn how to write a Slack Bot
+*** TODO Setup GitLab environment on Azure
+
+-----
+
+** Next Actions
+
+*** TODO SOW for Schneider Electric - hand-off to Sandip
+*** TODO Look into registering Jared and Brett for the MWPC
+*** TODO Follow up with Sandip on PCTest ASA
+*** TODO Contact Adnessa regarding remining hours
+*** TODO HelloInnovation Proposal - SharePoint solution for asset management
+
+*** TODO Stash Pull Request plugin dev for Apple
+*** TODO Setup Go2Group for Cloud Partner
+*** TODO Follow up with Suprtek regarding Clearance Sponsorship
+*** TODO Configure Salesforce - lots of missing config
+*** TODO VIM Config on the new Linux Workstation
+*** TODO Pay IRS
+
+
+*** DONE Talk with Doug regarding VSTS and ConnectAll
+*** DONE Fix my blog post about emacs and improve the blog theme
+*** DONE SCEG
+*** DONE Send Rovi Status Report
+    SCHEDULED: <2016-04-25 Mon>
+*** DONE ASA 240hrs for PCTestLab (RJ)
+*** DONE Give Bob SOW template for 80 hr POC
+*** DONE Call Mark @ Rovi to get password
+*** DONE FAFSA for Liam and Check Financial Aid
+*** DONE Make edits to iDirect ASA
+*** DONE Work on and start michaelmaheu.com blog back up
+
+-----
+
+** Scheduled
+
+*** TODO [#B] Microsoft TFS training start
+    SCHEDULED: <2016-04-21 Thu>
+
+-----
+
+** Some Day Maybe
+
+*** TODO Work on Salesforce for Go2Group (Reports)
+    SCHEDULED: <2016-04-19 Tue>
+*** TODO Reset dotfiles on github and clean up emacs config
+*** TODO Mini water pump and tint windows
+
+
+** Review
+*** https://www.youtube.com/watch?v=kxFvpJPetaw
+*** https://www.youtube.com/channel/UCP7RrmoueENv9TZts3HXXtw
+*** Install PostgreSQL: https://help.ubuntu.com/community/PostgreSQL
+
+
+
+** Sales Pipeline
+
+   | Who With        | Date/Time | Call Details |
+   |-----------------+-----------+--------------|
+   | PCTestLab       |           |              |
+   | Navy (CAC)      |           |              |
+   | Bottomline      |           |              |
+   | HelloInnovation |           |              |
+   | Marriott        |           |              |
+   |-----------------+-----------+--------------|
+   | Anthem          |           |              |
+   |                 |           |              |
+
+
+** Sales Calls
+   Array Health - Sending ASA for their application upgrades. They want to move from CentOS to Windows due to having Windows support people.
+   They may just use the ASA to have us maintain the existing applications on Linux with the addition of doing the upgrades.

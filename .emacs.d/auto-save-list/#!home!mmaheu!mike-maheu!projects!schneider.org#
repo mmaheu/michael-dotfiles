@@ -1,0 +1,105 @@
+#+STARTUP: OVERVIEW
+#+TAGS: COMPUTER(C) HOME(H) PROJECT(P) READING(R) ERRANDS(E) INPROGRESS(I) WAITING(W)
+#+STARTUP: HIDESTARS
+#+OPTIONS: TOC:2
+#+TITLE: SCHNEIDER ELECTRIC TRAINING
+
+
+* Server Runbook
+
+** Production
+
+   Public IP address/DNS name label 40.84.6.85
+   User: Parker
+   PW: CGANTab=2Tf=A4A
+
+   JIRA Prod - JIRA, Confluence, Apache2, MySQL (Database)
+   Bamboo - BitBucket (Git), Bamboo (Master)
+
+   NOT USING - MySQL root PW: +Go2Group16!
+   PostgreSQL User: atlassian | +go2group!
+
+** JIRA
+   go2group
+   +go2group!
+
+** Test
+   trainer
+*** +LV426go#
+
+
+** PostgreSQL
+   https://help.ubuntu.com/community/PostgreSQL
+
+   sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+   wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+   sudo apt-get update
+   sudo apt-get install postgresql-9.4 pgadmin3
+
+*** Set Password for postgres user
+    sudo -u postgres psql postgres
+    \password postgres
+
+*** To create a database with a user that have full rights on the database, use the following command:
+
+   sudo -u postgres createuser -D -A -P myuser
+   sudo -u postgres createdb -O myuser mydb
+
+
+* SCHNEIDER ELECTRIC SDLC Training Plan
+  The training will take 2 days with an additional half day for Q&A
+
+** DAY ONE
+   - Overview
+     -Transitioning from Waterfall to Agile - Tell the story
+
+   - Intro to JIRA
+     - The JIRA platform
+     - Dashboards
+     - Projects
+     - Filters
+     - Issues
+     - Workflows
+     - Permissions
+     - Reporting, notifications, and subscriptions
+     - Integrations
+     - Addons
+
+   - Intro to confluence
+     - The confluence platform
+     - Spaces
+     - Pages
+     - Blueprints
+     - Layouts
+     - Space admin
+     - Permissions
+     - Traceabilty
+     - Requirements pipeline
+
+
+** DAY TWO
+   - Bitbucket and git
+     - GIT setup for the developer
+     - GIT basics
+     - Agile development with GIT
+     - Branching strategies
+     - Bitbucket platform
+     - Repo management
+     - Pull requests
+     - Advanced git
+     - JIRA integration and traceability
+
+   - Bamboo
+     - The Bamboo Platform
+     - Bamboo dashboard
+     - Git and branching integration
+     - Build Plans
+     - Stages
+     - Jobs and tasks
+     - Triggers
+     - Unit tests
+     - .Net builds
+     - Build traceability
+
+** Day Three (half)
+   - Q&A

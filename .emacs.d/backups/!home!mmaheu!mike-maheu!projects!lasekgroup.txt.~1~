@@ -1,0 +1,66 @@
+			      ____________
+
+			       LASEKGROUP
+
+			       Mike Maheu
+			      ____________
+
+
+Table of Contents
+_________________
+
+1 Lacek
+.. 1.1 Plugin Development for their custom plugin
+.. 1.2 Questions
+.. 1.3 Notes
+.. 1.4 Git Training
+
+
+1 Lacek
+=======
+
+1.1 Plugin Development for their custom plugin
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  JIRA has a lot of highly sensitive PII data. They are a marketing
+  company that sends out, tracks, and analysis emails One restriction is
+  that the data can't comingle. Ford cant see Dodge info. They used
+  permissions to issolate the projects.  Assign project at time of
+  creation at the time of adding the account. In the Create Menu, they
+  added the Create Project button It uses AD to verify permissions. They
+  assign permissions from there. Meta data values that are collected and
+  saved.  Used for reporting purposes. They also have custom
+  scripts. Fields Samba Link and QDrive.
+
+  They are using ScriptRunner as well. One script finds the value for
+  QDrive and SamabLink. They add creative assets on these drives.
+
+
+  Dan will do a demo to bring our team up to speed.
+  - There is a permission scheme that gets created per project. When
+    they have to make edits, they have to edit each one. Pehaps have a
+    permission scheme per account. Then the scheme could be used for
+    multiple projects based on the account.
+
+  - Project issue type gets closed. He wants to archive them.
+
+
+1.2 Questions
+~~~~~~~~~~~~~
+
+  - Kanban Boards - They dont want people to create projects when
+    creating a Rapid Board
+
+
+1.3 Notes
+~~~~~~~~~
+
+  They will give us backup of their JIRA and the plugin source code
+
+
+1.4 Git Training
+~~~~~~~~~~~~~~~~
+
+  Right now they are an SVN shop. They want to move to Git/BB. They also
+  use Build Master Rick leads the application development team. We will
+  plan with him regarding the Git training.  Branching strategy.
