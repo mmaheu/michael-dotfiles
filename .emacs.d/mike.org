@@ -10,7 +10,6 @@
 <<babel-init>>
 
 *** Adds package sources
-
 #+BEGIN_SRC emacs-lisp
 
 ;;; Add this at the top of the init.el file:
@@ -30,47 +29,41 @@
 
 #+END_SRC
 
-#+BEGIN_SRC emacs-lisp
-;; (when (memq window-system '(mac ns x))
-;;  (exec-path-from-shell-initialize))
-#+END_SRC
+*** Colors and shell for term, shell, and eshell
+  #+BEGIN_SRC emacs-lisp
+  ;; (setq multi-term-program "/bin/bash")
 
-#+BEGIN_SRC emacs-lisp
-;; (setq multi-term-program "/bin/bash")
+  (custom-set-variables
+       '(term-default-bg-color "#222222")        ;; background color (black) old: 273849
+       '(term-default-fg-color "#8db6cd"))       ;; foreground color (DeepSkyBlue)
 
-(custom-set-variables
-     '(term-default-bg-color "#121212")        ;; background color (black) old: 273849
-     '(term-default-fg-color "#8db6cd"))       ;; foreground color (DeepSkyBlue)
+  #+END_SRC
 
-#+END_SRC
+** REFACTOR for Powerline or NOT
+*** Emacs Color Theme and Powerline Colors
+    #+BEGIN_SRC emacs-lisp
 
+    ;; (load-theme 'mgl-light t)
+     (add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/color-theme-mgl/")
+     (load-theme 'bubbleberry t)
 
-#+BEGIN_SRC emacs-lisp
+    ;; (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+    ;; (load-theme 'sanityinc-tomorrow-night t)
+    (powerline-default-theme)
 
-;; (setq multi-term-program "/bin/bash")
-;; (use-package color-theme :ensure t)
-;; (load-theme 'mgl-light t)
- (add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/color-theme-mgl/")
- (load-theme 'bubbleberry t)
+    ;; colors...
+     (defvar powerline-color1)
+     (defvar powerline-color2)
 
-;; (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-;; (load-theme 'sanityinc-tomorrow-night t)
-;; (powerline-default-theme)
+     (setq powerline-color1 "plum3")
+     (setq powerline-color2 "plum4")
 
-;; colors...
-;; (defvar powerline-color1)
-;; (defvar powerline-color2)
+    ;; shape...
+     (setq powerline-arrow-shape 'arrow)   ;; the default
+     (setq powerline-arrow-shape 'curve)   ;; give your mode-line curves
+     (setq powerline-arrow-shape 'arrow14) ;; best for small fonts
 
-;; (setq powerline-color1 "plum3")
-;; (setq powerline-color2 "plum4")
-
-;; shape...
-;; (setq powerline-arrow-shape 'arrow)   ;; the default
-;;   (setq powerline-arrow-shape 'curve)   ;; give your mode-line curves
-;; (setq powerline-arrow-shape 'arrow14) ;; best for small fonts
-
-#+END_SRC
-
+    #+END_SRC
 
 *** Undo Tree
 
@@ -103,21 +96,21 @@
 
 (defun lawlist-bookmark (choice)
   "Choices for directories and files."
-  (interactive "c[D]ired | [a]genda.md | [g]td.md | [m]ike.org | [n]otes")
+  (interactive "c[D]ired | [a]genda.org | [g]td.org | [m]ike.org | [n]otes")
     (cond
 	   ((eq choice ?D)
 	   (dired "~/Development/java"))
 	   ((eq choice ?a)
-	   (find-file "~/m-notes/gtd/agenda.md")
+	   (find-file "~/Dropbox/m-notes/org/agenda.org")
 	    (message "Opened:  %s" (buffer-name)))
 	  ((eq choice ?g)
-	   (find-file "~/m-notes/gtd/tasks.md")
+	   (find-file "~/Dropbox/m-notes/org/gtd.org")
 	    (message "Opened:  %s" (buffer-name)))
 	  ((eq choice ?m)
 	   (find-file "~/.emacs.d/mike.org")
 	    (message "Opened:  %s" (buffer-name)))
 	  ((eq choice ?n)
-	   (dired "~/m-notes")
+	   (dired "~/Dropbox/m-notes")
 	    (message "Opened:  %s" (buffer-name)))
 	  (t (message "Quit"))))
 
@@ -133,23 +126,23 @@
  '(display-time-mode t)
  '(org-agenda-files
    (quote
-    ("~/mike-maheu/gtd/gtd.org" "~/mike-maheu/gtd/agendas.org" "~/mike-maheu/gtd/calendar.org" "~/mike-maheu/gtd/journal.org" "~/mike-maheu/gtd/mike.org" "~/mike-maheu/gtd/notes.org" "~/mike-maheu/gtd/plangtd.org" "~/mike-maheu/gtd/reminders.org" "~/mike-maheu/gtd/shopping.org" "~/mike-maheu/gtd/someday.org")))
- '(remember-data-file "~/mike-maheu/gtd/reminders.org")
+    ("~/Dropbox/m-notes/org/gtd.org" "~/Dropbox/m-notes/org/agenda.org" "~/Dropbox/m-notes/org/calendar.org" "~/Dropbox/m-notes/org/journal.org" "~/Dropbox/m-notes/org/mike.org" "~/Dropbox/m-notes/org/notes.org" "~/Dropbox/m-notes/org/plangtd.org" "~/Dropbox/m-notes/org/reminders.org" "~/Dropbox/m-notes/org/shopping.org" "~/Dropbox/m-notes/org/someday.org")))
+ '(remember-data-file "~/Dropbox/m-notes/org/reminders.org")
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 #+END_SRC
 
-*** When you're starting out, tooltips, menus, and the tool bar can be very helpful. [[http://sachachua.com/blog/2014/03/emacs-basics-using-mouse/][(Emacs Basics: Using the Mouse]]). Eventually, you may want to reclaim that extra little bit of screenspace. The following code turns those things off when using a graphical Emacs. (Although I changed my mind about the menu - I want that again.)
+*** Emacs UI Tweaks
 
-#+BEGIN_SRC emacs-lisp
-(when window-system
-  (tooltip-mode -1)
-  (tool-bar-mode -1)
-  (menu-bar-mode -1)
-  (scroll-bar-mode -1))
-#+END_SRC
+  #+BEGIN_SRC emacs-lisp
+  (when window-system
+    (tooltip-mode -1)
+    (tool-bar-mode -1)
+    (menu-bar-mode -1)
+    (scroll-bar-mode -1))
+  #+END_SRC
 
-*** These are my global bindings, some help with Mac Command key
+*** These are my global keyboard bindings and package includes (i.e. AceJump)
 
 #+BEGIN_SRC emacs-lisp
 ;;; Global key bindigns
@@ -273,189 +266,186 @@
 
 #+END_SRC
 
-These are my global settings that are needed
+*** These are my global settings that are needed
 
-#+BEGIN_SRC emacs-lisp
-;;; Generic emacs settings I cannot live without
+  #+BEGIN_SRC emacs-lisp
+  ;;; Generic emacs settings I cannot live without
 
-;; Use command as the meta key; option key as super
-(setq ns-command-modifier 'meta)
-(setq ns-option-modifier  'super)
+  ;; tramp-mode default to SSH
+  (setq tramp-default-method "ssh")
 
-;; Don't show the startup screen
-(setq inhibit-startup-message t)
+  ;; Use command as the meta key; option key as super
+  (setq ns-command-modifier 'meta)
+  (setq ns-option-modifier  'super)
 
-;; "y or n" instead of "yes or no"
-(fset 'yes-or-no-p 'y-or-n-p)
+  ;; Don't show the startup screen
+  (setq inhibit-startup-message t)
 
-;; Highlight regions and add special behaviors to regions.
-;; "C-h d transient" for more info
-(setq transient-mark-mode t)
-(pending-delete-mode t)
+  ;; "y or n" instead of "yes or no"
+  (fset 'yes-or-no-p 'y-or-n-p)
 
-;; Display line and column numbers
-(setq line-number-mode    t)
-(setq column-number-mode  t)
+  ;; Highlight regions and add special behaviors to regions.
+  ;; "C-h d transient" for more info
+  (setq transient-mark-mode t)
+  (pending-delete-mode t)
 
-;; Modeline info
-(display-time-mode 1)
-;; (display-battery-mode 1)
+  ;; Display line and column numbers
+  (setq line-number-mode    t)
+  (setq column-number-mode  t)
 
-;; Small fringes
-(set-fringe-mode '(1 . 1))
+  ;; Modeline info
+  (display-time-mode 1)
+  ;; (display-battery-mode 1)
 
-;; Emacs gurus don't need no stinking scroll bars
-(when (fboundp 'toggle-scroll-bar)
-  (toggle-scroll-bar -1))
+  ;; Small fringes
+  (set-fringe-mode '(1 . 1))
 
-;; Explicitly show the end of a buffer
-(set-default 'indicate-empty-lines t)
+  ;; Emacs gurus don't need no stinking scroll bars
+  (when (fboundp 'toggle-scroll-bar)
+    (toggle-scroll-bar -1))
 
-;; Line-wrapping
-(set-default 'fill-column 78)
+  ;; Explicitly show the end of a buffer
+  (set-default 'indicate-empty-lines t)
 
-;; Prevent the annoying beep on errors
-;; (setq visible-bell t)
-(setq ring-bell-function 'ignore)
+  ;; Line-wrapping
+  (set-default 'fill-column 78)
 
-;; Make sure all backup files only live in one place
-(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
-(setq delete-old-versions -1)
-(setq version-control t)
-(setq vc-make-backup-files t)
-(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)))
+  ;; Prevent the annoying beep on errors
+  ;; (setq visible-bell t)
+  (setq ring-bell-function 'ignore)
 
-;; Gotta see matching parens
-(show-paren-mode t)
+  ;; Make sure all backup files only live in one place
+  (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+  (setq delete-old-versions -1)
+  (setq version-control t)
+  (setq vc-make-backup-files t)
+  (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)))
 
-;; Don't truncate lines
-(setq truncate-lines t)
-(setq truncate-partial-width-windows nil)
+  ;; Gotta see matching parens
+  (show-paren-mode t)
 
-;; For emacsclient
-(server-start)
+  ;; Don't truncate lines
+  (setq truncate-lines t)
+  (setq truncate-partial-width-windows nil)
 
-;; Trailing whitespace is unnecessary
-(defvar whitespace-cleanup-on-save t)
-;; (setq whitespace-cleanup-on-save nil)
-(add-hook 'before-save-hook
-	  (lambda ()
-	    (if whitespace-cleanup-on-save (whitespace-cleanup))))
+  ;; For emacsclient
+  (server-start)
 
-;; Trash can support
-(setq delete-by-moving-to-trash t)
+  ;; Trailing whitespace is unnecessary
+  (defvar whitespace-cleanup-on-save t)
+  ;; (setq whitespace-cleanup-on-save nil)
+  (add-hook 'before-save-hook
+	    (lambda ()
+	      (if whitespace-cleanup-on-save (whitespace-cleanup))))
 
-#+END_SRC
+  ;; Trash can support
+  (setq delete-by-moving-to-trash t)
 
-;; HELM Configuration
+  #+END_SRC
 
-#+BEGIN_SRC emacs-lisp
-(use-package helm
-  :ensure t
-  :diminish helm-mode
-  :init
-  (progn
-    (require 'helm-config)
-    (setq helm-candidate-number-limit 100)
-    ;; From https://gist.github.com/antifuchs/9238468
-    (setq helm-idle-delay 0.0 ; update fast sources immediately (doesn't).
-	  helm-input-idle-delay 0.01  ; this actually updates things
-					; reeeelatively quickly.
-	  helm-yas-display-key-on-candidate t
-	  helm-quick-update t
-	  helm-M-x-requires-pattern nil
-	  helm-ff-skip-boring-files t)
-    (helm-mode))
-  :bind (("C-c h" . helm-mini)
-	 ("C-h a" . helm-apropos)
-	 ("C-x C-b" . helm-buffers-list)
-	 ("C-x b" . helm-buffers-list)
-	 ("M-y" . helm-show-kill-ring)
-	 ("M-x" . helm-M-x)
-	 ("C-x c o" . helm-occur)
-	 ("C-x c s" . helm-swoop)
-	 ("C-x c y" . helm-yas-complete)
-	 ("C-x c Y" . helm-yas-create-snippet-on-region)
-	 ("C-x c b" . my/helm-do-grep-book-notes)
-	 ("C-x c SPC" . helm-all-mark-rings)))
-(ido-mode -1) ;; Turn off ido mode in case I enabled it accidentally
-#+END_SRC
+*** Helm Config
 
-#+BEGIN_SRC emacs-lisp
+    ;; HELM Configuration
 
-(defun move-line-up ()
-  "Move up the current line."
-  (interactive)
-  (transpose-lines 1)
-  (forward-line -2)
-  (indent-according-to-mode))
+    #+BEGIN_SRC emacs-lisp
+    (use-package helm
+      :ensure t
+      :diminish helm-mode
+      :init
+      (progn
+	(require 'helm-config)
+	(setq helm-candidate-number-limit 100)
+	;; From https://gist.github.com/antifuchs/9238468
+	(setq helm-idle-delay 0.0 ; update fast sources immediately (doesn't).
+	      helm-input-idle-delay 0.01  ; this actually updates things
+					    ; reeeelatively quickly.
+	      helm-yas-display-key-on-candidate t
+	      helm-quick-update t
+	      helm-M-x-requires-pattern nil
+	      helm-ff-skip-boring-files t)
+	(helm-mode))
+      :bind (("C-c h" . helm-mini)
+	     ("C-h a" . helm-apropos)
+	     ("C-x C-b" . helm-buffers-list)
+	     ("C-x b" . helm-buffers-list)
+	     ("M-y" . helm-show-kill-ring)
+	     ("M-x" . helm-M-x)
+	     ("C-x c o" . helm-occur)
+	     ("C-x c s" . helm-swoop)
+	     ("C-x c y" . helm-yas-complete)
+	     ("C-x c Y" . helm-yas-create-snippet-on-region)
+	     ("C-x c b" . my/helm-do-grep-book-notes)
+	     ("C-x c SPC" . helm-all-mark-rings)))
+    (ido-mode -1) ;; Turn off ido mode in case I enabled it accidentally
+    #+END_SRC
 
-(defun move-line-down ()
-  "Move down the current line."
-  (interactive)
-  (forward-line 1)
-  (transpose-lines 1)
-  (forward-line -1)
-  (indent-according-to-mode))
+*** Org-Mode
 
-(global-set-key [(control shift up)]  'move-line-up)
-(global-set-key [(control shift down)]  'move-line-down)
+      #+BEGIN_SRC emacs-lisp
 
-#+END_SRC
+	(defun move-line-up ()
+	  "Move up the current line."
+	  (interactive)
+	  (transpose-lines 1)
+	  (forward-line -2)
+	  (indent-according-to-mode))
 
-;; Org-Mode additional modules and config
-#+BEGIN_SRC emacs-lisp
-(setq org-modules '(org-bbdb
-		      org-gnus
-		      org-drill
-		      org-info
-		      org-jsinfo
-		      org-habit
-		      org-irc
-		      org-mouse
-		      org-protocol
-		      org-annotate-file
-		      org-eval
-		      org-expiry
-		      org-interactive-query
-		      org-man
-		      org-collector
-		      org-panel
-		      org-screen
-		      org-toc))
-(eval-after-load 'org
- '(org-load-modules-maybe t))
+	(defun move-line-down ()
+	  "Move down the current line."
+	  (interactive)
+	  (forward-line 1)
+	  (transpose-lines 1)
+	  (forward-line -1)
+	  (indent-according-to-mode))
 
-(setq org-expiry-inactive-timestamps t)
-(bind-key "C-c r" 'org-capture)
-(bind-key "C-c a" 'org-agenda)
-(bind-key "C-c l" 'org-store-link)
-(bind-key "C-c L" 'org-insert-link-global)
-(bind-key "C-c O" 'org-open-at-point-global)
-(bind-key "C-TAB" 'org-cycle org-mode-map)
-(bind-key "C-c v" 'org-show-todo-tree org-mode-map)
-(bind-key "C-c C-r" 'org-refile org-mode-map)
-(bind-key "C-c R" 'org-reveal org-mode-map)
+	(global-set-key [(control shift up)]  'move-line-up)
+	(global-set-key [(control shift down)]  'move-line-down)
 
-(setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/mike-maheu/gtd/gtd.org" "Inbox")
-	 "* TODO %?\n  %i\n  %a")
-	("j" "Journal" entry (file+datetree "~/mike-maheu/gtd/journal.org")
-	 "* %?\nEntered on %U\n  %i\n  %a")))
+	#+END_SRC
 
-#+END_SRC
+	;; Org-Mode additional modules and config
+	#+BEGIN_SRC emacs-lisp
+	(setq org-modules '(org-bbdb
+			      org-gnus
+			      org-info
+			      org-habit
+			      org-irc
+			      org-mouse
+			      org-protocol))
+	(eval-after-load 'org
+	 '(org-load-modules-maybe t))
 
-#+BEGIN_SRC emacs-lisp
-(setq eshell-prompt-function
-     (lambda ()
-       (concat
-	(propertize "┌─[" 'face `(:foreground "cyan"))
-	(propertize (concat (eshell/pwd)) 'face `(:foreground "white"))
-	(propertize "@" 'face `(:foreground "cyan"))
-	(propertize "]──[" 'face `(:foreground "cyan"))
-	(propertize (format-time-string "%H:%M" (current-time)) 'face `(:foreground "aero"))
-	(propertize "]\n" 'face `(:foreground "cyan"))
-	(propertize "└─>" 'face `(:foreground "cyan"))
-	(propertize (if (= (user-uid) 0) " # " " $ ") 'face `(:foreground "cyan"))
-	)))
-#+END_SRC
+	(setq org-expiry-inactive-timestamps t)
+	(bind-key "C-c r" 'org-capture)
+	(bind-key "C-c a" 'org-agenda)
+	(bind-key "C-c l" 'org-store-link)
+	(bind-key "C-c L" 'org-insert-link-global)
+	(bind-key "C-c O" 'org-open-at-point-global)
+	(bind-key "C-TAB" 'org-cycle org-mode-map)
+	(bind-key "C-c v" 'org-show-todo-tree org-mode-map)
+	(bind-key "C-c C-r" 'org-refile org-mode-map)
+	(bind-key "C-c R" 'org-reveal org-mode-map)
+
+	(setq org-capture-templates
+	      '(("t" "Todo" entry (file+headline "~/Dropbox/m-notes/org/gtd.org" "Inbox")
+		 "* TODO %?\n  %i\n  %a")
+		("j" "Journal" entry (file+datetree "~/Dropbox/m-notes/org/journal.org")
+		 "* %?\nEntered on %U\n  %i\n  %a")))
+
+	#+END_SRC
+
+*** eShell
+	  #+BEGIN_SRC emacs-lisp
+	  (setq eshell-prompt-function
+	       (lambda ()
+		 (concat
+		  (propertize "┌─[" 'face `(:foreground "cyan"))
+		  (propertize (concat (eshell/pwd)) 'face `(:foreground "white"))
+		  (propertize "@" 'face `(:foreground "cyan"))
+		  (propertize "]──[" 'face `(:foreground "cyan"))
+		  (propertize (format-time-string "%H:%M" (current-time)) 'face `(:foreground "aero"))
+		  (propertize "]\n" 'face `(:foreground "cyan"))
+		  (propertize "└─>" 'face `(:foreground "cyan"))
+		  (propertize (if (= (user-uid) 0) " # " " $ ") 'face `(:foreground "cyan"))
+		  )))
+	  #+END_SRC
