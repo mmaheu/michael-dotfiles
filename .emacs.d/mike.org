@@ -68,7 +68,7 @@
 ** REFACTOR for Powerline or NOT
 *** Emacs Color Theme and Powerline Colors
     #+BEGIN_SRC emacs-lisp
-
+    (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/") 
     (load-theme 'bubbleberry t)
     (powerline-default-theme)
 
