@@ -1,6 +1,6 @@
 #+OPTIONS: toc:4 h:4
 
-* Mikes Configuration
+* Martian Configuration
 
 ** About this file
    :PROPERTIES:
@@ -10,6 +10,7 @@
 <<babel-init>>
 
 *** Adds package sources
+
 #+BEGIN_SRC emacs-lisp
 
 ;;; Add this at the top of the init.el file:
@@ -29,26 +30,46 @@
 
 #+END_SRC
 
+*** Email in Emacs with mu and mbsync - protonmail
+#+BEGIN_SRC emacs-lisp
+  (require 'mu4e)
+
+  (setq mu4e-maildir "~/.mail"
+  mu4e-attachment-dir "~/Downloads")
+
+  (setq user-mail-address "me@michaelmaheu.com"
+  user-full-name  "Michael")
+
+  ;; Get mail
+  (setq mu4e-get-mail-command "mbsync protonmail"
+  mu4e-change-filenames-when-moving t   ; needed for mbsync
+  mu4e-update-interval 120)             ; update every 2 minutes
+
+  ;; Send mail
+  (setq message-send-mail-function 'smtpmail-send-it
+  smtpmail-auth-credentials "~/.authinfo.gpg"
+  smtpmail-smtp-server "127.0.0.1"
+  smtpmail-stream-type 'starttls
+  smtpmail-smtp-service 1025)
+
+  (add-to-list 'gnutls-trustfiles (expand-file-name "~/.config/protonmail/bridge/cert.pem"))
+#+END_SRC
+
+
+
 *** Colors and shell for term, shell, and eshell
   #+BEGIN_SRC emacs-lisp
-  ;; (setq multi-term-program "/bin/bash")
-
   (custom-set-variables
        '(term-default-bg-color "#222222")        ;; background color (black) old: 273849
        '(term-default-fg-color "#8db6cd"))       ;; foreground color (DeepSkyBlue)
-
+    ;;   '(region ((t (:background "#C0C0C0")))))  ;; Selected Highlight Color
   #+END_SRC
 
 ** REFACTOR for Powerline or NOT
 *** Emacs Color Theme and Powerline Colors
     #+BEGIN_SRC emacs-lisp
 
-    ;; (load-theme 'mgl-light t)
-     (add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/color-theme-mgl/")
-     (load-theme 'bubbleberry t)
-
-    ;; (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-    ;; (load-theme 'sanityinc-tomorrow-night t)
+    (load-theme 'bubbleberry t)
     (powerline-default-theme)
 
     ;; colors...
@@ -86,7 +107,7 @@
 
 #+BEGIN_SRC emacs-lisp
 
-(setq org-agenda-files '("~/mike-maheu/gtd"))
+(setq org-agenda-files '("~/Dropbox/m-notes/org"))
 (eval-after-load "org"
   '(require 'ox-md nil t))
 
@@ -209,9 +230,17 @@
 ;; Help for markdown-mode
 (setq markdown-enable-prefix-prompts t)
 
-;; Multiple Cursors
-(define-key global-map (kbd "C-c n") 'mc/mark-all-like-this)
-(define-key global-map (kbd "M-n") 'mc/mark-next-lines)
+;; Multiple Cursors --- This package seems to be left behind and not maintained
+
+;; (define-key global-map (kbd "C-c n") 'mc/mark-all-like-this)
+;; (define-key global-map (kbd "M-n") 'mc/mark-next-lines)
+
+(global-set-key (kbd "M-n") 'mc/mark-next-like-this)
+(global-set-key (kbd "M-p") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+
+
 
 ;; Replace dired's M-o
 (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "M-o") 'other-window))) ; was dired-omit-mode
@@ -234,7 +263,7 @@
 (windmove-default-keybindings 'meta)
 
 ;; Mac OS X conventions
-(global-set-key (kbd "M-a") 'mark-whole-buffer) ; was backward-sentence.
+;; (global-set-key (kbd "M-a") 'mark-whole-buffer) ; was backward-sentence.
 
 ;; Find matching parens
 (global-set-key (kbd "C-'") 'match-paren)
@@ -273,6 +302,11 @@
 
   ;; tramp-mode default to SSH
   (setq tramp-default-method "ssh")
+
+  ;; gpg verify non-external
+  (setenv "GPG_AGENT_INFO" nil)
+  (setq auth-source-debug t)
+  (setq epa-pinentry-mode 'loopback)
 
   ;; Use command as the meta key; option key as super
   (setq ns-command-modifier 'meta)

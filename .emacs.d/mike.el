@@ -13,38 +13,49 @@
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
     (setq exec-path (append exec-path '("/usr/local/bin")))
 
-;; (when (memq window-system '(mac ns x))
-;;  (exec-path-from-shell-initialize))
+(require 'mu4e)
 
-;; (setq multi-term-program "/bin/bash")
+(setq mu4e-maildir "~/.mail"
+mu4e-attachment-dir "~/Downloads")
+
+(setq user-mail-address "me@michaelmaheu.com"
+user-full-name  "Michael")
+
+;; Get mail
+(setq mu4e-get-mail-command "mbsync protonmail"
+mu4e-change-filenames-when-moving t   ; needed for mbsync
+mu4e-update-interval 120)             ; update every 2 minutes
+
+;; Send mail
+(setq message-send-mail-function 'smtpmail-send-it
+smtpmail-auth-credentials "~/.authinfo.gpg"
+smtpmail-smtp-server "127.0.0.1"
+smtpmail-stream-type 'starttls
+smtpmail-smtp-service 1025)
+
+(add-to-list 'gnutls-trustfiles (expand-file-name "~/.config/protonmail/bridge/cert.pem"))
 
 (custom-set-variables
-     '(term-default-bg-color "#121212")        ;; background color (black) old: 273849
+     '(term-default-bg-color "#222222")        ;; background color (black) old: 273849
      '(term-default-fg-color "#8db6cd"))       ;; foreground color (DeepSkyBlue)
+  ;;   '(region ((t (:background "#C0C0C0")))))  ;; Selected Highlight Color
 
-;; (setq multi-term-program "/bin/bash")
-;; (use-package color-theme :ensure t)
-;; (load-theme 'mgl-light t)
- (add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/color-theme-mgl/")
- (load-theme 'bubbleberry t)
-
-;; (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-;; (load-theme 'sanityinc-tomorrow-night t)
-;; (powerline-default-theme)
+(load-theme 'bubbleberry t)
+(powerline-default-theme)
 
 ;; colors...
-;; (defvar powerline-color1)
-;; (defvar powerline-color2)
+ (defvar powerline-color1)
+ (defvar powerline-color2)
 
-;; (setq powerline-color1 "plum3")
-;; (setq powerline-color2 "plum4")
+ (setq powerline-color1 "plum3")
+ (setq powerline-color2 "plum4")
 
 ;; shape...
-;; (setq powerline-arrow-shape 'arrow)   ;; the default
-;;   (setq powerline-arrow-shape 'curve)   ;; give your mode-line curves
-;; (setq powerline-arrow-shape 'arrow14) ;; best for small fonts
+ (setq powerline-arrow-shape 'arrow)   ;; the default
+ (setq powerline-arrow-shape 'curve)   ;; give your mode-line curves
+ (setq powerline-arrow-shape 'arrow14) ;; best for small fonts
 
-(setq org-agenda-files '("~/mike-maheu/gtd"))
+(setq org-agenda-files '("~/Dropbox/m-notes/org"))
 (eval-after-load "org"
   '(require 'ox-md nil t))
 
@@ -54,21 +65,21 @@
 
 (defun lawlist-bookmark (choice)
   "Choices for directories and files."
-  (interactive "c[D]ired | [a]genda.md | [g]td.md | [m]ike.org | [n]otes")
+  (interactive "c[D]ired | [a]genda.org | [g]td.org | [m]ike.org | [n]otes")
     (cond
 	   ((eq choice ?D)
 	   (dired "~/Development/java"))
 	   ((eq choice ?a)
-	   (find-file "~/m-notes/gtd/agenda.md")
+	   (find-file "~/Dropbox/m-notes/org/agenda.org")
 	    (message "Opened:  %s" (buffer-name)))
 	  ((eq choice ?g)
-	   (find-file "~/m-notes/gtd/tasks.md")
+	   (find-file "~/Dropbox/m-notes/org/gtd.org")
 	    (message "Opened:  %s" (buffer-name)))
 	  ((eq choice ?m)
 	   (find-file "~/.emacs.d/mike.org")
 	    (message "Opened:  %s" (buffer-name)))
 	  ((eq choice ?n)
-	   (dired "~/m-notes")
+	   (dired "~/Dropbox/m-notes")
 	    (message "Opened:  %s" (buffer-name)))
 	  (t (message "Quit"))))
 
@@ -84,8 +95,8 @@
  '(display-time-mode t)
  '(org-agenda-files
    (quote
-    ("~/mike-maheu/gtd/gtd.org" "~/mike-maheu/gtd/agendas.org" "~/mike-maheu/gtd/calendar.org" "~/mike-maheu/gtd/journal.org" "~/mike-maheu/gtd/mike.org" "~/mike-maheu/gtd/notes.org" "~/mike-maheu/gtd/plangtd.org" "~/mike-maheu/gtd/reminders.org" "~/mike-maheu/gtd/shopping.org" "~/mike-maheu/gtd/someday.org")))
- '(remember-data-file "~/mike-maheu/gtd/reminders.org")
+    ("~/Dropbox/m-notes/org/gtd.org" "~/Dropbox/m-notes/org/agenda.org" "~/Dropbox/m-notes/org/calendar.org" "~/Dropbox/m-notes/org/journal.org" "~/Dropbox/m-notes/org/mike.org" "~/Dropbox/m-notes/org/notes.org" "~/Dropbox/m-notes/org/plangtd.org" "~/Dropbox/m-notes/org/reminders.org" "~/Dropbox/m-notes/org/shopping.org" "~/Dropbox/m-notes/org/someday.org")))
+ '(remember-data-file "~/Dropbox/m-notes/org/reminders.org")
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 
@@ -159,9 +170,17 @@
 ;; Help for markdown-mode
 (setq markdown-enable-prefix-prompts t)
 
-;; Multiple Cursors
-(define-key global-map (kbd "C-c n") 'mc/mark-all-like-this)
-(define-key global-map (kbd "M-n") 'mc/mark-next-lines)
+;; Multiple Cursors --- This package seems to be left behind and not maintained
+
+;; (define-key global-map (kbd "C-c n") 'mc/mark-all-like-this)
+;; (define-key global-map (kbd "M-n") 'mc/mark-next-lines)
+
+(global-set-key (kbd "M-n") 'mc/mark-next-like-this)
+(global-set-key (kbd "M-p") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+
+
 
 ;; Replace dired's M-o
 (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "M-o") 'other-window))) ; was dired-omit-mode
@@ -184,7 +203,7 @@
 (windmove-default-keybindings 'meta)
 
 ;; Mac OS X conventions
-(global-set-key (kbd "M-a") 'mark-whole-buffer) ; was backward-sentence.
+;; (global-set-key (kbd "M-a") 'mark-whole-buffer) ; was backward-sentence.
 
 ;; Find matching parens
 (global-set-key (kbd "C-'") 'match-paren)
@@ -215,6 +234,14 @@
 (global-set-key (kbd "s-\\") 'fixup-whitespace)
 
 ;;; Generic emacs settings I cannot live without
+
+;; tramp-mode default to SSH
+(setq tramp-default-method "ssh")
+
+;; gpg verify non-external
+(setenv "GPG_AGENT_INFO" nil)
+(setq auth-source-debug t)
+(setq epa-pinentry-mode 'loopback)
 
 ;; Use command as the meta key; option key as super
 (setq ns-command-modifier 'meta)
@@ -333,22 +360,11 @@
 
 (setq org-modules '(org-bbdb
 		      org-gnus
-		      org-drill
 		      org-info
-		      org-jsinfo
 		      org-habit
 		      org-irc
 		      org-mouse
-		      org-protocol
-		      org-annotate-file
-		      org-eval
-		      org-expiry
-		      org-interactive-query
-		      org-man
-		      org-collector
-		      org-panel
-		      org-screen
-		      org-toc))
+		      org-protocol))
 (eval-after-load 'org
  '(org-load-modules-maybe t))
 
@@ -364,9 +380,9 @@
 (bind-key "C-c R" 'org-reveal org-mode-map)
 
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/mike-maheu/gtd/gtd.org" "Inbox")
+      '(("t" "Todo" entry (file+headline "~/Dropbox/m-notes/org/gtd.org" "Inbox")
 	 "* TODO %?\n  %i\n  %a")
-	("j" "Journal" entry (file+datetree "~/mike-maheu/gtd/journal.org")
+	("j" "Journal" entry (file+datetree "~/Dropbox/m-notes/org/journal.org")
 	 "* %?\nEntered on %U\n  %i\n  %a")))
 
 (setq eshell-prompt-function
