@@ -6,7 +6,7 @@
 ;;; Package-Requires: ((emacs "24.1"))
 ;;;
 ;;; Change Log:
-;;  
+;;
 ;;  0.1.2         : Fixes from Steve Purcell
 ;;  0.1.1         : Bugfix
 ;;  0.1.0         : initial version
@@ -48,7 +48,7 @@
 
  ;; basic theming.
  '(default                          ((t (:foreground "#CCCCCC" :background "#1F1C1B" ))))
- '(region                           ((t (:background "#151515" ))))
+ '(region                           ((t (:background "#00FFFF" ))))
  '(cursor                           ((t (:background "#EEEEEE" ))))
  '(fringe                           ((t (:background "#2F2F2F" :foreground "#FFFFFF" ))))
  '(linum                            ((t (:background "#202020" :foreground "#777777" :box nil :height 100 ))))
@@ -156,7 +156,7 @@
 ;;;###autoload
 (when load-file-name
   (add-to-list 'custom-theme-load-path
-               (file-name-as-directory (file-name-directory load-file-name))))
+	       (file-name-as-directory (file-name-directory load-file-name))))
 
 (provide-theme 'bubbleberry)
 

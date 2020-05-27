@@ -40,6 +40,7 @@ smtpmail-smtp-service 1025)
      '(term-default-fg-color "#8db6cd"))       ;; foreground color (DeepSkyBlue)
   ;;   '(region ((t (:background "#C0C0C0")))))  ;; Selected Highlight Color
 
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/") 
 (load-theme 'bubbleberry t)
 (powerline-default-theme)
 
