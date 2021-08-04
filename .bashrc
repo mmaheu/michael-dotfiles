@@ -43,3 +43,8 @@ PROMPT_COMMAND='PS1=$CYAN"\w "$(git_prompt)$WHITE" >"$NORMAL" "'
 
 # Setting Sudo Bash Prompt
 export SUDO_PS1=$YONR"[\h] \w \u #"$NORMAL" "
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

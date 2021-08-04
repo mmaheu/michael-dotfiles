@@ -1,4 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/mmaheu/Development/ruby/pdemo/app/controllers'
+let g:netrw_dirhist_8='/home/mmaheu/Development/ruby/pdemo/app'
+let g:netrw_dirhist_7='/home/mmaheu/Development/ruby/pdemo'
+let g:netrw_dirhist_6='/home/mmaheu/Development/ruby/pdemo/db'
+let g:netrw_dirhist_5='/home/mmaheu/Development/ruby/pdemo/db/migrate'
+let g:netrw_dirhist_4='/home/mmaheu/Development/ruby/pdemo/app/controllers'
+let g:netrw_dirhist_3='/home/mmaheu/mike-maheu/adaptavist/ideas'
 let g:netrw_dirhist_2='/home/mmaheu/mike-maheu/gtd'
 let g:netrw_dirhist_1='/home/mmaheu/mike-maheu'

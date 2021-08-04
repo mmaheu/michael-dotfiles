@@ -20,7 +20,6 @@
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-(package-initialize)
 (package-refresh-contents)
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -55,8 +54,6 @@
   (add-to-list 'gnutls-trustfiles (expand-file-name "~/.config/protonmail/bridge/cert.pem"))
 #+END_SRC
 
-
-
 *** Colors and shell for term, shell, and eshell
   #+BEGIN_SRC emacs-lisp
   (custom-set-variables
@@ -65,11 +62,10 @@
     ;;   '(region ((t (:background "#C0C0C0")))))  ;; Selected Highlight Color
   #+END_SRC
 
-** REFACTOR for Powerline or NOT
 *** Emacs Color Theme and Powerline Colors
     #+BEGIN_SRC emacs-lisp
-    (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/") 
-    (load-theme 'bubbleberry t)
+    (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+    (load-theme 'sanityinc-tomorrow-night t)
     (powerline-default-theme)
 
     ;; colors...
@@ -107,7 +103,7 @@
 
 #+BEGIN_SRC emacs-lisp
 
-(setq org-agenda-files '("~/Dropbox/m-notes/org"))
+(setq org-agenda-files '("~/mike-maheu/gtd"))
 (eval-after-load "org"
   '(require 'ox-md nil t))
 
@@ -122,16 +118,16 @@
 	   ((eq choice ?D)
 	   (dired "~/Development/java"))
 	   ((eq choice ?a)
-	   (find-file "~/Dropbox/m-notes/org/agenda.org")
+	   (find-file "~/mike-maheu/gtd/agenda.org")
 	    (message "Opened:  %s" (buffer-name)))
 	  ((eq choice ?g)
-	   (find-file "~/Dropbox/m-notes/org/gtd.org")
+	   (find-file "~/mike-maheu/gtd/gtd.org")
 	    (message "Opened:  %s" (buffer-name)))
 	  ((eq choice ?m)
 	   (find-file "~/.emacs.d/mike.org")
 	    (message "Opened:  %s" (buffer-name)))
 	  ((eq choice ?n)
-	   (dired "~/Dropbox/m-notes")
+	   (dired "~/mike-maheu")
 	    (message "Opened:  %s" (buffer-name)))
 	  (t (message "Quit"))))
 
@@ -147,8 +143,9 @@
  '(display-time-mode t)
  '(org-agenda-files
    (quote
-    ("~/Dropbox/m-notes/org/gtd.org" "~/Dropbox/m-notes/org/agenda.org" "~/Dropbox/m-notes/org/calendar.org" "~/Dropbox/m-notes/org/journal.org" "~/Dropbox/m-notes/org/mike.org" "~/Dropbox/m-notes/org/notes.org" "~/Dropbox/m-notes/org/plangtd.org" "~/Dropbox/m-notes/org/reminders.org" "~/Dropbox/m-notes/org/shopping.org" "~/Dropbox/m-notes/org/someday.org")))
- '(remember-data-file "~/Dropbox/m-notes/org/reminders.org")
+    ("~/mike-maheu/gtd/gtd.org" "~/mike-maheu/gtd/agenda.org" "~/mike-maheu/gtd/calendar.org" "~/mike-maheu/gtd/journal.org" "~/mike-maheu/gtd/mike.org"
+ "~/mike-maheu/gtd/notes.org" "~/mike-maheu/gtd/plangtd.org" "~/mike-maheu/gtd/reminders.org" "~/mike-maheu/gtd/shopping.org" "~/mike-maheu/gtd/someday.org")))
+ '(remember-data-file "~/mike-maheu/gtd/reminders.org")
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 #+END_SRC
@@ -163,7 +160,7 @@
     (scroll-bar-mode -1))
   #+END_SRC
 
-*** These are my global keyboard bindings and package includes (i.e. AceJump)
+*** Global keyboard bindings and package includes (i.e. AceJump)
 
 #+BEGIN_SRC emacs-lisp
 ;;; Global key bindigns
@@ -240,8 +237,6 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 
-
-
 ;; Replace dired's M-o
 (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "M-o") 'other-window))) ; was dired-omit-mode
 ;; Replace ibuffer's M-o
@@ -295,7 +290,7 @@
 
 #+END_SRC
 
-*** These are my global settings that are needed
+*** Global Settings
 
   #+BEGIN_SRC emacs-lisp
   ;;; Generic emacs settings I cannot live without
@@ -374,6 +369,12 @@
 
   ;; Trash can support
   (setq delete-by-moving-to-trash t)
+
+  ;; EMMS Support
+  (require 'emms-setup)
+  (emms-all)
+  (emms-default-players)
+  (setq emms-source-file-default-directory "~/Music/")
 
   #+END_SRC
 
@@ -461,9 +462,9 @@
 	(bind-key "C-c R" 'org-reveal org-mode-map)
 
 	(setq org-capture-templates
-	      '(("t" "Todo" entry (file+headline "~/Dropbox/m-notes/org/gtd.org" "Inbox")
+	      '(("t" "Todo" entry (file+headline "~/mike-maheu/gtd/gtd.org" "Inbox")
 		 "* TODO %?\n  %i\n  %a")
-		("j" "Journal" entry (file+datetree "~/Dropbox/m-notes/org/journal.org")
+		("j" "Journal" entry (file+datetree "~/mike-maheu/gtd/journal.org")
 		 "* %?\nEntered on %U\n  %i\n  %a")))
 
 	#+END_SRC
@@ -483,3 +484,56 @@
 		  (propertize (if (= (user-uid) 0) " # " " $ ") 'face `(:foreground "cyan"))
 		  )))
 	  #+END_SRC
+
+*** EMMS
+#+BEGIN_SRC emacs-lisp
+
+(setq mpc-host "localhost:6600")
+
+(use-package emms
+  :ensure t
+  :config
+    (require 'emms-setup)
+    (require 'emms-player-mpd)
+    (emms-all) ; don't change this to values you see on stackoverflow questions if you expect emms to work
+    (setq emms-seek-seconds 5)
+    (setq emms-player-list '(emms-player-mpd))
+    (setq emms-info-functions '(emms-info-mpd))
+    (setq emms-player-mpd-server-name "localhost")
+    (setq emms-player-mpd-server-port "6600")
+  :bind
+    ("s-m p" . emms)
+    ("s-m b" . emms-smart-browse)
+    ("s-m r" . emms-player-mpd-update-all-reset-cache)
+    ("<XF86AudioPrev>" . emms-previous)
+    ("<XF86AudioNext>" . emms-next)
+    ("<XF86AudioPlay>" . emms-pause)
+    ("<XF86AudioStop>" . emms-stop))
+
+(defun mpd/start-music-daemon ()
+  "Start MPD, connects to it and syncs the metadata cache."
+  (interactive)
+  (shell-command "mpd")
+  (mpd/update-database)
+  (emms-player-mpd-connect)
+  (emms-cache-set-from-mpd-all)
+  (message "MPD Started!"))
+  (global-set-key (kbd "s-m c") 'mpd/start-music-daemon)
+
+(defun mpd/kill-music-daemon ()
+  "Stops playback and kill the music daemon."
+  (interactive)
+  (emms-stop)
+  (call-process "killall" nil nil nil "mpd")
+  (message "MPD Killed!"))
+(global-set-key (kbd "s-m k") 'mpd/kill-music-daemon)
+
+(defun mpd/update-database ()
+  "Updates the MPD database synchronously."
+  (interactive)
+  (call-process "mpc" nil nil nil "update")
+  (message "MPD Database Updated!"))
+(global-set-key (kbd "s-m u") 'mpd/update-database)
+
+
+#+END_SRC

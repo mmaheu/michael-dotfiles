@@ -1,9 +1,10 @@
 [user]
-	name = Mike
+	name = Michael
 	email = mike@codemartians.com
 	user = mmaheu
+
 [core]
-	excludesfile = /home/michael/.gitignore_global
+	excludesfile = /home/mmaheu/.gitignore_global
 	autocrlf = input
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -27,6 +28,6 @@
 	clean = git-lfs clean -- %f
 	process = git-lfs filter-process
 [credential]
-	helper = store
+	helper = manager-core
 [commit]
-	template = /home/michael/.mmCommitMsg
+	template = /home/mmaheu/.mmCommitMsg
